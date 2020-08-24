@@ -4,6 +4,9 @@ module.exports = {
     'standard',
     'react-app',
     'plugin:@typescript-eslint/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
     'plugin:jsx-a11y/recommended',
   ],
   plugins: ['simple-import-sort'],
@@ -38,15 +41,36 @@ module.exports = {
         functions: 'always-multiline',
       },
     ],
+    'import/no-named-as-default': 'off',
+    'import/no-named-as-default-member': 'off',
+    'import/default': 'off',
+    'import/named': 'off',
+    'import/namespace': 'off',
     quotes: ['error', 'single'],
     'react/jsx-wrap-multilines': 'error',
     semi: [2, 'always'],
-    'space-before-function-paren': 'off',
     'simple-import-sort/sort': 'error',
+    'space-before-function-paren': 'off',
   },
+  overrides: [
+    {
+      files: ['*.js', '*.jsx'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+  ],
   settings: {
     react: {
       version: 'detect',
+    },
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+      },
     },
   },
 };
