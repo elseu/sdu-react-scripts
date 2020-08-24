@@ -5,7 +5,7 @@ Generic script and config for your next @elseu React project
 - [Eslint Config](/config/eslint/index.js)
 
 ## Installation
-`npm install -D @elseu/sdu-react-scripts`
+`npm install -D sdu-react-scripts`
 
 ## Features
 
@@ -14,7 +14,7 @@ You can use the ESLint config by extending it in an `.eslintrc.js` file like thi
 
 ```javascript
 module.exports = {
-  extends: ['./node_modules/sdu-react-scripts/config/eslint'],
+  extends: ['sdu-react-scripts/config/eslint'],
 }
 ```
 
