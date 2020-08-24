@@ -25,6 +25,7 @@ async function eslintEject() {
     '@typescript-eslint/parser',
     'eslint-config-react-app',
     'eslint-config-standard',
+    'eslint-import-resolver-typescript',
     'eslint-plugin-flowtype',
     'eslint-plugin-import',
     'eslint-plugin-jsx-a11y',

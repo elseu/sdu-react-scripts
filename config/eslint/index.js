@@ -41,11 +41,16 @@ module.exports = {
         functions: 'always-multiline',
       },
     ],
+    'import/no-named-as-default': 'off',
+    'import/no-named-as-default-member': 'off',
+    'import/default': 'off',
+    'import/named': 'off',
+    'import/namespace': 'off',
     quotes: ['error', 'single'],
-    semi: [2, 'always'],
     'react/jsx-wrap-multilines': 'error',
-    'space-before-function-paren': 'off',
+    semi: [2, 'always'],
     'simple-import-sort/sort': 'error',
+    'space-before-function-paren': 'off',
   },
   overrides: [
     {
