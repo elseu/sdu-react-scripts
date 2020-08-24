@@ -1,6 +1,6 @@
 {
   "name": "@elseu/sdu-react-scripts",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "license": "MIT",
   "main": "index.js",
   "author": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elseu/sdu-react-scripts"
+    "url": "https://github.com/elseu/sdu-react-scripts"
   },
   "bugs": {
     "url": "https://github.com/elseu/sdu-react-scripts/issues"
@@ -70,5 +70,8 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "semantic-release": "^17.1.1"
+  },
+  "publishConfig": {
+    "access": "restricted"
   }
 }
