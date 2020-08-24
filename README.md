@@ -14,7 +14,7 @@ You can use the ESLint config by extending it in an `.eslintrc.js` file like thi
 
 ```javascript
 module.exports = {
-  extends: ['sdu-react-scripts/config/eslint'],
+  extends: ['sdu-react-scripts/config/eslint'], // node_modules/sdu-react-scripts/config/eslint
 }
 ```
 
