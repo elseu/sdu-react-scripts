@@ -18,7 +18,8 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint-fix": "eslint --fix . --ext .ts,.tsx,.js,.jsx",
     "prepublishOnly": "npm run lint",
-    "deploy": "semantic-release"
+    "deploy": "semantic-release",
+    "semantic-release": "semantic-release"
   },
   "bin": {
     "sdu-react-scripts": "./bin/sdu-react-scripts.js"
@@ -70,8 +71,5 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "semantic-release": "^17.1.1"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }
