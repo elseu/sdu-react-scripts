@@ -41,6 +41,7 @@ module.exports = {
         functions: 'always-multiline',
       },
     ],
+    'max-len': ['error', { code: 120 }],
     'import/no-named-as-default': 'off',
     'import/no-named-as-default-member': 'off',
     'import/default': 'off',
