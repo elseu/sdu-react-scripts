@@ -54,6 +54,7 @@ module.exports = {
     'simple-import-sort/exports': 'error',
     'space-before-function-paren': 'off',
   },
+
   overrides: [
     {
       files: ['*.js', '*.jsx'],
@@ -62,6 +63,7 @@ module.exports = {
       },
     },
   ],
+
   settings: {
     react: {
       version: 'detect',
