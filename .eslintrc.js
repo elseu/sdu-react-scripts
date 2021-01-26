@@ -1,4 +1,3 @@
-
 module.exports = {
-  extends: ["./config/eslint"]
-}
+  extends: ['./config/eslint'],
+};

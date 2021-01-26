@@ -30,17 +30,6 @@ module.exports = {
         ignoreRestSiblings: true,
       },
     ],
-    '@typescript-eslint/naming-convention': [
-      'error',
-      {
-        selector: 'interface',
-        format: ['PascalCase'],
-        custom: {
-          regex: '^I[A-Z]',
-          match: false,
-        },
-      },
-    ],
     camelcase: 'off',
     'comma-dangle': [
       'error',
@@ -61,7 +50,8 @@ module.exports = {
     quotes: ['error', 'single'],
     'react/jsx-wrap-multilines': 'error',
     semi: [2, 'always'],
-    'simple-import-sort/sort': 'error',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
     'space-before-function-paren': 'off',
   },
   overrides: [
