@@ -47,6 +47,7 @@ module.exports = {
     'import/default': 'off',
     'import/named': 'off',
     'import/namespace': 'off',
+    indent: ['error', 2, { offsetTernaryExpressions: true }],
     quotes: ['error', 'single'],
     'react/jsx-wrap-multilines': 'error',
     semi: [2, 'always'],
