@@ -12,7 +12,7 @@ Generic scripts and config files for your next React project
 ### Extending ESLint
 If you want to use this ESLint configuration in a React project, you can install it with the following steps.
 
-First, install this package, ESLint and the necessary plugins.
+First, install this package, ESLint and the necessary plugins. Just copy this line and paste in your terminal.
 ```
 npm install --save-dev eslint@7.x @typescript-eslint/eslint-plugin@4.x @typescript-eslint/parser@4.x eslint-config-standard@16.x eslint-import-resolver-typescript@2.x eslint-plugin-import@2.x eslint-plugin-jsx-a11y@6.x eslint-plugin-node@11.x eslint-plugin-promise@4.x eslint-plugin-react@7.x eslint-plugin-react-hooks@4.x eslint-plugin-simple-import-sort@7.x eslint-plugin-standard@4.x typescript@4.x
 ```
@@ -22,7 +22,27 @@ module.exports = {
   extends: ['./node_modules/sdu-react-scripts/config/eslint'], 
 }
 ```
+### Babel plugin: transform-titan-pure-annotations
+With this babel plugin you can transform @elseu/sdu-titan to make it export only pure functions.
+Since sdu-titan exports a hoc names withTitan, many frameworks don't recognize this as a pure function. 
+You can use this babel plugin with rollup like this:
 
+```js
+// .babelrc
+{
+  "plugins": [
+    "./node_modules/sdu-react-scripts/plugins/babel/transform-titan-pure-annotations"
+  ]
+}
+```
+```js
+// rollup.config.js
+import { getBabelOutputPlugin } from '@rollup/plugin-babel';
+
+getBabelOutputPlugin({
+  configFile: path.resolve(__dirname, '.babelrc'),
+}),
+```
 ### Ejecting from ESLint
 You can add or overwrite the ESLint rules if you want to.
 But if you totally wish to eject from `sdu-react-scripts` run `npx sdu-react-scripts eslint-eject`
