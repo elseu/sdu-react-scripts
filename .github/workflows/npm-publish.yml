@@ -21,7 +21,7 @@ jobs:
 
   deploy_npm:
     if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master' || github.ref == 'refs/heads/release'
-    needs: [ test ]
+    needs: [ build ]
     env:
       BRANCH: ${{ github.ref }}
     runs-on: [ ubuntu-latest ]
