@@ -2,7 +2,9 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
     'standard',
-    'react-app',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
@@ -10,24 +12,70 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
   ],
   plugins: ['simple-import-sort'],
+  env: {
+    node: true,
+    es6: true,
+    browser: true,
+  },
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
+    // typescript-eslint specific options
+    warnOnUnsupportedTypeScriptVersion: true,
   },
   rules: {
+    '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
+    'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
-        argsIgnorePattern: '^_',
+        argsIgnorePattern: '^_|req|res|next|err|ctx|args|context|info',
         ignoreRestSiblings: true,
+      },
+    ],
+    'no-array-constructor': 'off',
+    '@typescript-eslint/no-array-constructor': 'warn',
+    'no-redeclare': 'off',
+    '@typescript-eslint/no-redeclare': 'warn',
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': [
+      'warn',
+      {
+        functions: false,
+        classes: false,
+        variables: false,
+        typedefs: false,
+      },
+    ],
+    'no-unused-expressions': 'off',
+    '@typescript-eslint/no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+        allowTaggedTemplates: true,
+      },
+    ],
+    '@typescript-eslint/triple-slash-reference': 'off',
+    '@typescript-eslint/member-delimiter-style': [
+      'error',
+      {
+        multiline: {
+          delimiter: 'semi',
+          requireLast: true,
+        },
+        singleline: {
+          delimiter: 'semi',
+          requireLast: false,
+        },
       },
     ],
     camelcase: 'off',
@@ -41,19 +89,28 @@ module.exports = {
         functions: 'always-multiline',
       },
     ],
+    'array-callback-return': 'warn',
     'max-len': ['error', { code: 120 }],
+    indent: 'off',
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
+    'space-before-function-paren': 'off',
+
     'import/no-named-as-default': 'off',
     'import/no-named-as-default-member': 'off',
     'import/default': 'off',
     'import/named': 'off',
     'import/namespace': 'off',
-    indent: ['error', 2, { offsetTernaryExpressions: true }],
-    quotes: ['error', 'single'],
-    'react/jsx-wrap-multilines': 'error',
-    semi: [2, 'always'],
+
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
-    'space-before-function-paren': 'off',
+
+    'react/prop-types': 'off',
+    'react/jsx-wrap-multilines': 'error',
+    'react/display-name': 'off',
+    // https://github.com/facebook/react/tree/master/packages/eslint-plugin-react-hooks
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 
   overrides: [
