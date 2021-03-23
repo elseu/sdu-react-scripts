@@ -11,6 +11,6 @@ Generic scripts and config files for your next React project
 
 Select one of the features below to view their docs.
 
-- [Extending ESLint](./config/eslint/README.md)
-- [Extending Rollup Config](./config/rollup/README.md)
-- [Babel plugin: transform-titan-pure-annotations](./plugins/babel/README.md)
+- [Extending ESLint](./config/eslint)
+- [Extending Rollup Config](./config/rollup)
+- [Babel plugin: transform-titan-pure-annotations](./plugins/babel)
