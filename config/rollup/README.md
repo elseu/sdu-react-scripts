@@ -22,5 +22,16 @@ export default {
 }
 ```
 
+The default rollup config uses entry points in your package json. They should be like this:
+```
+{
+  // ...other package.json props,
+  "source": "src/index.ts",
+  "types": "dist/types/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+}
+```
+
 If you are using the package `@elseu/sdu-titan` in your project you need the custom babel plugin [transform-titan-pure-annotations](../../plugins/babel/README.md).
 
