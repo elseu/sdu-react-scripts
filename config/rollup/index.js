@@ -1,6 +1,6 @@
 const commonjs = require('@rollup/plugin-commonjs');
 const json = require('@rollup/plugin-json');
-const resolve = require('@rollup/plugin-node-resolve');
+const resolve = require('@rollup/plugin-node-resolve').default;
 const typescriptPlugin = require('@rollup/plugin-typescript');
 const url = require('@rollup/plugin-url');
 const externals = require('rollup-plugin-node-externals');
