@@ -1,9 +1,9 @@
-import commonjs from '@rollup/plugin-commonjs';
-import json from '@rollup/plugin-json';
-import resolve from '@rollup/plugin-node-resolve';
-import typescriptPlugin from '@rollup/plugin-typescript';
-import url from '@rollup/plugin-url';
-import externals from 'rollup-plugin-node-externals';
+const commonjs = require.resolve('@rollup/plugin-commonjs');
+const json = require.resolve('@rollup/plugin-json');
+const resolve = require.resolve('@rollup/plugin-node-resolve');
+const typescriptPlugin = require.resolve('@rollup/plugin-typescript');
+const url = require.resolve('@rollup/plugin-url');
+const externals = require.resolve('rollup-plugin-node-externals');
 
 const dirname = (file) => {
   const [root, folder] = file.split('/');
