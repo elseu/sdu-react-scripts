@@ -15,7 +15,7 @@ You can use this babel plugin with rollup like this:
 ```
 ```js
 // rollup.config.js
-import defaultRollupConfig from 'sdu-react-scripts/config/rollup
+import defaultRollupConfig from 'sdu-react-scripts/config/rollup'
 import { getBabelOutputPlugin } from '@rollup/plugin-babel';
 
 import pkg from './package.json';
