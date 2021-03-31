@@ -18,3 +18,18 @@ module.exports = {
 ## Ejecting from ESLint
 You can add or overwrite the ESLint rules if you want to.
 But if you totally wish to eject from `sdu-react-scripts` run `npx sdu-react-scripts eslint-eject`
+
+## Autoformatting on save in VSCode
+To turn on autoformatting on save in VSCode follow the following guidelines:
+
+- Download the [VSCode ESLint Plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and following the instructions.
+
+- Make sure to change your settings.json in VSCode and add the following lines in the json:
+
+```json
+"editor.codeActionsOnSave": {
+  "source.fixAll.eslint": true
+}
+```
+
+- Make sure Prettier is turned off and eslint is set as formatter!
