@@ -90,6 +90,7 @@ module.exports = {
       },
     ],
     'array-callback-return': 'warn',
+    'jsx-quotes': ['error', 'prefer-double'],
     'max-len': ['error', { code: 120 }],
     indent: 'off',
     quotes: ['error', 'single'],
