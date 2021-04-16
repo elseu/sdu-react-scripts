@@ -1,9 +1,6 @@
 # sdu-react-scripts
 Generic scripts and config files for your next React project
 
-## Contents
-- [Eslint Config](/config/eslint/index.js)
-
 ## Installation
 `npm install -D sdu-react-scripts`
 
