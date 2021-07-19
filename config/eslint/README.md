@@ -8,7 +8,7 @@ Then install ESLint and the necessary plugins. Just copy this line and paste in 
 ```
 npm install --save-dev eslint
 ```
-Then create a file named .eslintrc.json with following contents in the root folder of your project:
+Then create a file named .eslintrc.js with following contents in the root folder of your project:
 ```javascript
 module.exports = {
   extends: ['./node_modules/sdu-react-scripts/config/eslint'], 
