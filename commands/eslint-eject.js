@@ -33,7 +33,7 @@ async function eslintEject() {
     'eslint-plugin-react-hooks',
     'eslint-plugin-simple-import-sort',
     'eslint-plugin-standard',
-    '--save',
+    '-D',
     // @ts-ignore
   ]).stdout.pipe(process.stdout);
 
