@@ -8,7 +8,7 @@ Then install ESLint and the necessary plugins. Just copy this line and paste in 
 ```
 npm install --save-dev eslint
 ```
-Then create a file named .eslintrc.json with following contents in the root folder of your project:
+Then create a file named .eslintrc.js with following contents in the root folder of your project:
 ```javascript
 module.exports = {
   extends: ['./node_modules/sdu-react-scripts/config/eslint'], 
@@ -18,3 +18,18 @@ module.exports = {
 ## Ejecting from ESLint
 You can add or overwrite the ESLint rules if you want to.
 But if you totally wish to eject from `sdu-react-scripts` run `npx sdu-react-scripts eslint-eject`
+
+## Autoformatting on save in VSCode
+To turn on autoformatting on save in VSCode follow the following guidelines:
+
+- Download the [VSCode ESLint Plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and following the instructions.
+
+- Make sure to change your settings.json in VSCode and add the following lines in the json:
+
+```json
+"editor.codeActionsOnSave": {
+  "source.fixAll.eslint": true
+}
+```
+
+- Make sure Prettier is turned off and eslint is set as formatter!
