@@ -21,6 +21,7 @@ async function eslintEject() {
 
   execa('npm', [
     'i',
+    'eslint',
     '@typescript-eslint/eslint-plugin',
     '@typescript-eslint/parser',
     'eslint-config-standard',
@@ -33,6 +34,7 @@ async function eslintEject() {
     'eslint-plugin-react-hooks',
     'eslint-plugin-simple-import-sort',
     'eslint-plugin-standard',
+    'eslint-plugin-testing-library',
     '-D',
     // @ts-ignore
   ]).stdout.pipe(process.stdout);
