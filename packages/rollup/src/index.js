@@ -45,5 +45,4 @@ function createDefaultRollupConfig(pkg) {
     ],
   };
 }
-
-module.exports = createDefaultRollupConfig;
+export default createDefaultRollupConfig;

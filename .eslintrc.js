@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['./config/eslint'],
+  extends: ['./packages/eslint'],
 };

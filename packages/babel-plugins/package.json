@@ -1,0 +1,43 @@
+{
+  "name": "@sdu-react-scripts/babel-plugins",
+  "description": "A set of Babel plugins for your project",
+  "main": "dist/sdu-react-scripts-babel-plugins.cjs.js",
+  "module": "dist/sdu-react-scripts-babel-plugins.esm.js",
+  "version": "1.0.0",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "author": {
+    "name": "Daphne Smit",
+    "email": "D.smit@sdu.nl"
+  },
+  "release": {
+    "branches": [
+      "master",
+      {
+        "name": "develop",
+        "prerelease": true
+      },
+      {
+        "name": "release",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "semantic-release-slack-bot",
+        {
+          "notifyOnSuccess": true,
+          "notifyOnFail": true,
+          "packageName": "sdu-react-scripts",
+          "markdownReleaseNotes": true
+        }
+      ]
+    ]
+  }
+}

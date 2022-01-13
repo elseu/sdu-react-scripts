@@ -1,4 +1,4 @@
-module.exports = {
+const eslintConfig = {
   parser: '@typescript-eslint/parser',
   extends: [
     'standard',
@@ -149,3 +149,5 @@ module.exports = {
     },
   },
 };
+
+export default eslintConfig

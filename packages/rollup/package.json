@@ -1,0 +1,65 @@
+{
+  "name": "@sdu-react-scripts/rollup",
+  "description": "A standard Rollup config to get started with",
+  "main": "dist/sdu-react-scripts-rollup.cjs.js",
+  "module": "dist/sdu-react-scripts-rollup.esm.js",
+  "version": "1.0.0",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "author": {
+    "name": "Daphne Smit",
+    "email": "D.smit@sdu.nl"
+  },
+  "scripts": {},
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "release": {
+    "branches": [
+      "master",
+      {
+        "name": "develop",
+        "prerelease": true
+      },
+      {
+        "name": "release",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "semantic-release-slack-bot",
+        {
+          "notifyOnSuccess": true,
+          "notifyOnFail": true,
+          "packageName": "sdu-react-scripts",
+          "markdownReleaseNotes": true
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.1.1",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@rollup/plugin-url": "^6.1.0",
+    "rollup": "^2.62.0",
+    "rollup-plugin-node-externals": "^3.1.2"
+  }
+}

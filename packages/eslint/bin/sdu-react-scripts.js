@@ -3,13 +3,13 @@ const { program } = require('commander');
 
 const { eslintEject } = require('../commands/eslint-eject');
 
-const packageJson = require('../package.json');
+const packageJson = require('../../../package.json');
 
 program.version(packageJson.version);
 
 program
-  .command('eslint-eject')
-  .description('Eject eslint config from sdu-react-scripts')
+  .command('eject')
+  .description('Eject eslint config from @sdu-react-scripts/eslint')
   .action(eslintEject);
 
 program.parse(process.argv);

@@ -10,7 +10,7 @@ const PURE_CALLS = new Map([
   ['withTitan'],
 ]);
 
-module.exports = declare(api => {
+const transformTitanPureAnnotations = declare(api => {
   api.assertVersion(7);
 
   return {
@@ -53,3 +53,5 @@ function isReactCall(path) {
 
   return false;
 }
+
+export { transformTitanPureAnnotations }
