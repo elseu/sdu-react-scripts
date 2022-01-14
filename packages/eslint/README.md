@@ -17,7 +17,7 @@ module.exports = {
 
 ## Ejecting from ESLint
 You can add or overwrite the ESLint rules if you want to.
-But if you totally wish to eject from `@sdu-react-scripts/eslint` run `npx @sdu-react-scripts/eslint eject`
+But if you totally wish to eject from `@sdu-react-scripts/eslint` run `npx sdu-react-scripts eject`
 
 ## Autoformatting on save in VSCode
 To turn on autoformatting on save in VSCode follow the following guidelines:

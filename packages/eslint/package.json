@@ -18,7 +18,7 @@
     "release": "semantic-release"
   },
   "bin": {
-    "@sdu-react-scripts/eslint": "./bin/sdu-react-scripts.js"
+    "sdu-react-scripts": "./bin/sdu-react-scripts.js"
   },
   "browserslist": {
     "production": [

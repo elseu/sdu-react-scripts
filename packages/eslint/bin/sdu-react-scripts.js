@@ -3,7 +3,7 @@ const { program } = require('commander');
 
 const { eslintEject } = require('../commands/eslint-eject');
 
-const packageJson = require('../../../package.json');
+const packageJson = require('../package.json');
 
 program.version(packageJson.version);
 
