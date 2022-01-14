@@ -13,7 +13,7 @@
     "email": "D.smit@sdu.nl"
   },
   "scripts": {
-    "release": "semantic-release"
+    "release": "semantic-release --debug"
   },
   "browserslist": {
     "production": [
@@ -28,6 +28,15 @@
     ]
   },
   "release": {
+    "monorepo": {
+      "debug": true,
+      "analyzeCommits": {
+        "format": "angular"
+      },
+      "generateNotes": {
+        "preset": "angular"
+      }
+    },
     "extends": "semantic-release-monorepo",
     "branches": [
       "master",
@@ -43,6 +52,7 @@
     "plugins": [
       "@semantic-release/npm",
       "@semantic-release/github",
+      "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       [
         "semantic-release-slack-bot",
