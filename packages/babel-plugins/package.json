@@ -11,6 +11,10 @@
     "name": "Daphne Smit",
     "email": "D.smit@sdu.nl"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elseu/sdu-react-scripts"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com/"

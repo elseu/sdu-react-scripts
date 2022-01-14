@@ -8,6 +8,10 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elseu/sdu-react-scripts"
+  },
   "author": {
     "name": "Daphne Smit",
     "email": "D.smit@sdu.nl"
