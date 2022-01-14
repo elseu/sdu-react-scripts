@@ -36,7 +36,7 @@
         "prerelease": true
       },
       {
-        "name": "fix/monorepo",
+        "name": "release",
         "prerelease": true
       }
     ],
