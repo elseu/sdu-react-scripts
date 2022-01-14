@@ -54,4 +54,4 @@ function isReactCall(path) {
   return false;
 }
 
-export { transformTitanPureAnnotations }
+export { transformTitanPureAnnotations };

@@ -1,1 +1,1 @@
-export { transformTitanPureAnnotations } from './transform-titan-pure-annotations'
+export { transformTitanPureAnnotations } from './transform-titan-pure-annotations';

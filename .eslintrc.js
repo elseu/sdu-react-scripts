@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['./packages/eslint'],
+  extends: ['./node_modules/@sdu-react-scripts/eslint'],
 };
