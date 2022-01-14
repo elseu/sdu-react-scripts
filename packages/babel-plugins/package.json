@@ -1,0 +1,68 @@
+{
+  "name": "@elseu/sdu-react-scripts-babel-plugins",
+  "description": "A set of Babel plugins for your project",
+  "main": "index.js",
+  "version": "1.0.0",
+  "license": "MIT",
+  "files": [
+    "transform-titan-pure-annotations.js"
+  ],
+  "author": {
+    "name": "Daphne Smit",
+    "email": "D.smit@sdu.nl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elseu/sdu-react-scripts"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "release": "semantic-release"
+  },
+  "release": {
+    "monorepo": {
+      "debug": true,
+      "analyzeCommits": {
+        "format": "angular"
+      },
+      "generateNotes": {
+        "preset": "angular"
+      }
+    },
+    "extends": "semantic-release-monorepo",
+    "branches": [
+      "master",
+      {
+        "name": "develop",
+        "prerelease": true
+      },
+      {
+        "name": "release",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "semantic-release-slack-bot",
+        {
+          "notifyOnSuccess": true,
+          "notifyOnFail": true,
+          "packageName": "@elseu/sdu-react-scripts-babel-plugins",
+          "markdownReleaseNotes": true
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "semantic-release": "^18.0.1",
+    "semantic-release-monorepo": "^7.0.5",
+    "semantic-release-slack-bot": "^3.4.1"
+  }
+}

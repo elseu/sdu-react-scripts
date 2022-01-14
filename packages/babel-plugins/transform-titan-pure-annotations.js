@@ -6,9 +6,7 @@ const t = require('@babel/core').types;
 // This plugin adds a /*#__PURE__#/ annotation to calls to these methods,
 // so that terser and other minifiers can safely remove them during dead
 // code elimination.
-const PURE_CALLS = new Map([
-  ['withTitan'],
-]);
+const PURE_CALLS = new Map([['withTitan']]);
 
 module.exports = declare(api => {
   api.assertVersion(7);
