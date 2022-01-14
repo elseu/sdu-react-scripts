@@ -12,7 +12,9 @@
     "name": "Daphne Smit",
     "email": "D.smit@sdu.nl"
   },
-  "scripts": {},
+  "scripts": {
+    "release": "semantic-release"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -26,6 +28,7 @@
     ]
   },
   "release": {
+    "extends": "semantic-release-monorepo",
     "branches": [
       "master",
       {
@@ -40,15 +43,13 @@
     "plugins": [
       "@semantic-release/npm",
       "@semantic-release/github",
-      "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       [
         "semantic-release-slack-bot",
         {
           "notifyOnSuccess": true,
           "notifyOnFail": true,
-          "packageName": "sdu-react-scripts",
-          "markdownReleaseNotes": true
+          "packageName": "@sdu-react-scripts/rollup"
         }
       ]
     ]
@@ -61,5 +62,9 @@
     "@rollup/plugin-url": "^6.1.0",
     "rollup": "^2.62.0",
     "rollup-plugin-node-externals": "^3.1.2"
+  },
+  "devDependencies": {
+    "semantic-release": "^18.0.1",
+    "semantic-release-monorepo": "^7.0.5"
   }
 }

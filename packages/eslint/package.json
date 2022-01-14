@@ -14,7 +14,9 @@
     "name": "Daphne Smit",
     "email": "D.smit@sdu.nl"
   },
-  "scripts": {},
+  "scripts": {
+    "release": "semantic-release"
+  },
   "bin": {
     "@sdu-react-scripts/eslint": "./bin/sdu-react-scripts.js"
   },
@@ -31,6 +33,7 @@
     ]
   },
   "release": {
+    "extends": "semantic-release-monorepo",
     "branches": [
       "master",
       {
@@ -45,15 +48,13 @@
     "plugins": [
       "@semantic-release/npm",
       "@semantic-release/github",
-      "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       [
         "semantic-release-slack-bot",
         {
           "notifyOnSuccess": true,
           "notifyOnFail": true,
-          "packageName": "@sdu-react-scripts/eslint",
-          "markdownReleaseNotes": true
+          "packageName": "@sdu-react-scripts/eslint"
         }
       ]
     ]
@@ -82,6 +83,8 @@
   },
   "devDependencies": {
     "react": "17.0.2",
+    "semantic-release": "^18.0.1",
+    "semantic-release-monorepo": "^7.0.5",
     "typescript": "^4.5.4"
   }
 }
