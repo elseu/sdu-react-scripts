@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    name
+    name: Lint, Build & Release
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -26,6 +26,9 @@ jobs:
     - name: Yarn install
       run: yarn install --frozen-lockfile
 
+    - name: Yarn lint
+      run: yarn lint
+      
     - name: Yarn build
       run: yarn build
 
