@@ -9,13 +9,13 @@ You can use this babel plugin with rollup like this:
 // .babelrc
 {
   "plugins": [
-    "@sdu-react-scripts/babel-plugins/transform-titan-pure-annotations"
+    "@elseu/sdu-react-scripts-babel-plugins/transform-titan-pure-annotations"
   ]
 }
 ```
 ```js
 // rollup.config.js
-import createDefaultRollupConfig from '@sdu-react-scripts/rollup'
+import createDefaultRollupConfig from '@elseu/sdu-react-scripts-rollup'
 import { getBabelOutputPlugin } from '@rollup/plugin-babel';
 
 import pkg from './package.json';

@@ -1,8 +1,7 @@
 {
-  "name": "@sdu-react-scripts/eslint",
+  "name": "@elseu/sdu-react-scripts-eslint",
   "description": "A standard Eslint config to get started with",
-  "main": "dist/sdu-react-scripts-eslint.cjs.js",
-  "module": "dist/sdu-react-scripts-eslint.esm.js",
+  "main": "index.js",
   "version": "1.0.0",
   "license": "MIT",
   "files": [
@@ -21,7 +20,7 @@
     "release": "semantic-release"
   },
   "bin": {
-    "sdu-react-scripts": "./bin/sdu-react-scripts.js"
+    "sdu-react-scripts-eslint": "./bin/sdu-react-scripts.js"
   },
   "browserslist": {
     "production": [
@@ -67,7 +66,8 @@
         {
           "notifyOnSuccess": true,
           "notifyOnFail": true,
-          "packageName": "@sdu-react-scripts/eslint"
+          "packageName": "@elseu/sdu-react-scripts-eslint",
+          "markdownReleaseNotes": true
         }
       ]
     ]

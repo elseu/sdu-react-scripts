@@ -1,8 +1,8 @@
 {
-  "name": "@sdu-react-scripts/rollup",
+  "name": "@elseu/sdu-react-scripts-rollup",
   "description": "A standard Rollup config to get started with",
-  "main": "dist/sdu-react-scripts-rollup.cjs.js",
-  "module": "dist/sdu-react-scripts-rollup.esm.js",
+  "main": "dist/elseu-sdu-react-scripts-rollup.cjs.js",
+  "module": "dist/elseu-sdu-react-scripts-rollup.esm.js",
   "version": "1.0.0",
   "license": "MIT",
   "files": [
@@ -62,7 +62,8 @@
         {
           "notifyOnSuccess": true,
           "notifyOnFail": true,
-          "packageName": "@sdu-react-scripts/rollup"
+          "packageName": "@elseu/sdu-react-scripts-rollup",
+          "markdownReleaseNotes": true
         }
       ]
     ]

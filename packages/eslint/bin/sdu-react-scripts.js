@@ -9,7 +9,7 @@ program.version(packageJson.version);
 
 program
   .command('eject')
-  .description('Eject eslint config from @sdu-react-scripts/eslint')
+  .description('Eject eslint config from @elseu/sdu-react-scripts/eslint')
   .action(eslintEject);
 
 program.parse(process.argv);

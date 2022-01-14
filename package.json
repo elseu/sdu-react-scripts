@@ -1,5 +1,5 @@
 {
-  "name": "@sdu-react-scripts/root",
+  "name": "@elseu/sdu-react-scripts",
   "version": "1.0.0",
   "private": "true",
   "author": {
@@ -18,7 +18,7 @@
   ],
   "preconstruct": {
     "packages": [
-      "packages/*"
+      "packages/rollup"
     ]
   },
   "scripts": {

@@ -3,7 +3,7 @@
 ## Extending ESLint
 If you want to use this ESLint configuration in a React project, you can install it with the following steps.
 
-First, install this package by running `npm i @sdu-react-scripts/eslint -D` .
+First, install this package by running `npm i @elseu/sdu-react-scripts/eslint -D` .
 Then install ESLint and the necessary plugins. Just copy this line and paste in your terminal.
 ```
 npm install --save-dev eslint
@@ -11,13 +11,13 @@ npm install --save-dev eslint
 Then create a file named .eslintrc.js with following contents in the root folder of your project:
 ```javascript
 module.exports = {
-  extends: ['@sdu-react-scripts/eslint'], 
+  extends: ['@elseu/sdu-react-scripts-eslint'], 
 }
 ```
 
 ## Ejecting from ESLint
 You can add or overwrite the ESLint rules if you want to.
-But if you totally wish to eject from `@sdu-react-scripts/eslint` run `npx sdu-react-scripts eject`
+But if you totally wish to eject from `@elseu/sdu-react-scripts-eslint` run `npx sdu-react-scripts-eslint eject`
 
 ## Autoformatting on save in VSCode
 To turn on autoformatting on save in VSCode follow the following guidelines:

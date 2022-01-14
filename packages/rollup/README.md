@@ -3,7 +3,7 @@
 ## Extending Rollup config
 If you want to use this Rollup configuration in a React project, you can install it with the following steps.
 
-First, install this package by running `npm i sdu-react-scripts -D` .
+First, install this package by running `npm i @elseu/sdu-react-scripts-rollup -D` .
 Then install Rollup as a peer dependency. Just copy this line and paste in your terminal.
 ```
 npm install --save-dev rollup
@@ -12,7 +12,7 @@ npm install --save-dev rollup
 Then create a file named rollup.config.js with following contents in the root folder of your project:
 ```javascript
 // rollup.config.js
-import createDefaultRollupConfig from 'sdu-react-scripts/config/rollup'
+import createDefaultRollupConfig from '@elseu/sdu-react-scripts-rollup'
 
 import pkg from './package.json';
 
