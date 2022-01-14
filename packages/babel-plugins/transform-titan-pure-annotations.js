@@ -8,7 +8,7 @@ const t = require('@babel/core').types;
 // code elimination.
 const PURE_CALLS = new Map([['withTitan']]);
 
-const transformTitanPureAnnotations = declare(api => {
+module.exports = declare(api => {
   api.assertVersion(7);
 
   return {
@@ -51,5 +51,3 @@ function isReactCall(path) {
 
   return false;
 }
-
-export { transformTitanPureAnnotations };
