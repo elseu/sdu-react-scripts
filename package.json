@@ -26,7 +26,7 @@
     "build": "preconstruct build",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint-fix": "eslint --fix . --ext .ts,.tsx,.js,.jsx",
-    "release": "yarn workspaces run semantic-release -e semantic-release-monorepo"
+    "release": "yarn workspaces run release"
   },
   "lint-staged": {
     "**/*.(js|ts|tsx)": [

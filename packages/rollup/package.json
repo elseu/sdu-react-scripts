@@ -65,6 +65,7 @@
   },
   "devDependencies": {
     "semantic-release": "^18.0.1",
-    "semantic-release-monorepo": "^7.0.5"
+    "semantic-release-monorepo": "^7.0.5",
+    "semantic-release-slack-bot": "^3.4.1"
   }
 }
