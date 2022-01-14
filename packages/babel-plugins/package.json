@@ -12,7 +12,8 @@
     "email": "D.smit@sdu.nl"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
     "release": "semantic-release"
