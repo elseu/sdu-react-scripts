@@ -1,4 +1,4 @@
-module.exports = {
+const eslintConfig = {
   parser: '@typescript-eslint/parser',
   extends: [
     'standard',
@@ -16,6 +16,7 @@ module.exports = {
     node: true,
     es6: true,
     browser: true,
+    jest: true,
   },
   parserOptions: {
     ecmaVersion: 2018,
@@ -149,3 +150,5 @@ module.exports = {
     },
   },
 };
+
+module.exports = eslintConfig;

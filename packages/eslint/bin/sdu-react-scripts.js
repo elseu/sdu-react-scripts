@@ -8,8 +8,8 @@ const packageJson = require('../package.json');
 program.version(packageJson.version);
 
 program
-  .command('eslint-eject')
-  .description('Eject eslint config from sdu-react-scripts')
+  .command('eject')
+  .description('Eject eslint config from @elseu/sdu-react-scripts/eslint')
   .action(eslintEject);
 
 program.parse(process.argv);

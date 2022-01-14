@@ -14,7 +14,7 @@ async function eslintEject() {
   }
 
   const contents = fs.readFileSync(
-    path.join(__dirname, '../config/eslint/index.js'),
+    path.join(__dirname, '../src/index.js'),
   );
   const eslintPath = path.join(process.cwd(), '.eslintrc.js');
   fs.writeFileSync(eslintPath, contents);

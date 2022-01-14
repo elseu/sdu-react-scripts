@@ -1,14 +1,14 @@
-const commonjs = require('@rollup/plugin-commonjs');
-const json = require('@rollup/plugin-json');
-const resolve = require('@rollup/plugin-node-resolve').default;
-const typescriptPlugin = require('@rollup/plugin-typescript');
-const url = require('@rollup/plugin-url');
-const externals = require('rollup-plugin-node-externals');
+import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
+import resolve from '@rollup/plugin-node-resolve';
+import typescriptPlugin from '@rollup/plugin-typescript';
+import url from '@rollup/plugin-url';
+import externals from 'rollup-plugin-node-externals';
 
-const dirname = (file) => {
+function dirname(file) {
   const [root, folder] = file.split('/');
   return `${root}/${folder}`;
-};
+}
 
 function createDefaultRollupConfig(pkg) {
   return {
@@ -46,4 +46,4 @@ function createDefaultRollupConfig(pkg) {
   };
 }
 
-module.exports = createDefaultRollupConfig;
+export default createDefaultRollupConfig;
