@@ -10,6 +10,9 @@
     "bin",
     "commands"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": {
     "name": "Daphne Smit",
     "email": "D.smit@sdu.nl"

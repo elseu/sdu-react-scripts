@@ -12,8 +12,11 @@
     "name": "Daphne Smit",
     "email": "D.smit@sdu.nl"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "release": "semantic-release --debug"
+    "release": "semantic-release"
   },
   "browserslist": {
     "production": [
