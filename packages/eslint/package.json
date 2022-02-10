@@ -51,7 +51,7 @@
     },
     "extends": "semantic-release-monorepo",
     "branches": [
-      "master",
+      "main",
       {
         "name": "develop",
         "prerelease": true
