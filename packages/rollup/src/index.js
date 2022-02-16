@@ -31,10 +31,7 @@ function createDefaultRollupConfig(pkg) {
       },
     ],
     plugins: [
-      externals({
-        deps: true,
-        peerDeps: true,
-      }),
+      externals(),
       url(),
       resolve(),
       json(),
