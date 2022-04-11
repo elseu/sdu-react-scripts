@@ -8,7 +8,7 @@ const t = require('@babel/core').types;
 // code elimination.
 const PURE_CALLS = new Map([['withTitan']]);
 
-module.exports = declare(api => {
+module.exports = declare((api) => {
   api.assertVersion(7);
 
   return {
