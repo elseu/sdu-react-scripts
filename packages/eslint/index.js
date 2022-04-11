@@ -1,4 +1,3 @@
-
 const eslintConfig = {
   parser: '@typescript-eslint/parser',
   extends: [
