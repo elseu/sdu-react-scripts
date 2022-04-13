@@ -3,17 +3,20 @@ Generic scripts and config files for your next (React) project
 
 ## Installation
 
-### Eslint config
-`npm install -D @elseu/sdu-react-scripts-eslint`
-### Rollup config
-`npm install -D @elseu/sdu-react-scripts-rollup`
-### Babel Plugins
-`npm install -D @elseu/sdu-react-scripts-babel-plugins`
-
 ## Packages
 
 Select one of the packages below to view their docs.
 
+### Eslint config
+`npm install -D @elseu/sdu-react-scripts-eslint`
+
 - [ESLint](./packages/eslint)
+
+### Rollup config
+`npm install -D @elseu/sdu-react-scripts-rollup`
+
 - [Rollup](./packages/rollup)
+### Babel Plugins
+`npm install -D @elseu/sdu-react-scripts-babel-plugins`
+
 - [Babel plugins](./packages/babel-plugins)
