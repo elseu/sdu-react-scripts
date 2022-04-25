@@ -125,6 +125,7 @@ const eslintConfig = {
     'max-len': ['error', { code: 120 }],
     indent: 'off',
     quotes: ['error', 'single'],
+    'prefer-template': 'error',
     semi: ['error', 'always'],
     'space-before-function-paren': 'off',
 
