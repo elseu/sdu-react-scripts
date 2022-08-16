@@ -124,6 +124,7 @@ const eslintConfig = {
     'jsx-quotes': ['error', 'prefer-double'],
     'max-len': ['error', { code: 120 }],
     indent: 'off',
+    'no-nested-ternary': 'error',
     quotes: ['error', 'single'],
     'prefer-template': 'error',
     semi: ['error', 'always'],
