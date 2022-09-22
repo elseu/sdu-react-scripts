@@ -31,5 +31,3 @@ To turn on autoformatting on save in VSCode follow the following guidelines:
   "source.fixAll.eslint": true
 }
 ```
-
-- Make sure Prettier is turned off and eslint is set as formatter!
