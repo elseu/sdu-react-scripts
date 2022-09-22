@@ -10,6 +10,7 @@ const eslintConfig = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:jsx-a11y/recommended',
+    "prettier"
   ],
   plugins: ['simple-import-sort', 'testing-library'],
   env: {
@@ -29,8 +30,6 @@ const eslintConfig = {
     warnOnUnsupportedTypeScriptVersion: true,
   },
   rules: {
-    'arrow-parens': ['error', 'always'],
-    '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -47,7 +46,6 @@ const eslintConfig = {
     '@typescript-eslint/prefer-includes': ['error'],
     '@typescript-eslint/prefer-optional-chain': ['error'],
     '@typescript-eslint/prefer-string-starts-ends-with': ['error'],
-    '@typescript-eslint/type-annotation-spacing': ['error'],
     '@typescript-eslint/naming-convention': ['error',
       {
         selector: 'variable',
@@ -96,38 +94,11 @@ const eslintConfig = {
       },
     ],
     '@typescript-eslint/triple-slash-reference': 'off',
-    '@typescript-eslint/member-delimiter-style': [
-      'error',
-      {
-        multiline: {
-          delimiter: 'semi',
-          requireLast: true,
-        },
-        singleline: {
-          delimiter: 'semi',
-          requireLast: false,
-        },
-      },
-    ],
     camelcase: 'off',
-    'comma-dangle': [
-      'error',
-      {
-        arrays: 'always-multiline',
-        objects: 'always-multiline',
-        imports: 'always-multiline',
-        exports: 'always-multiline',
-        functions: 'always-multiline',
-      },
-    ],
     'array-callback-return': 'warn',
-    'jsx-quotes': ['error', 'prefer-double'],
-    'max-len': ['error', { code: 120 }],
     indent: 'off',
     'no-nested-ternary': 'error',
-    quotes: ['error', 'single'],
     'prefer-template': 'error',
-    semi: ['error', 'always'],
     'space-before-function-paren': 'off',
 
     'import/no-named-as-default': 'off',
@@ -151,19 +122,11 @@ const eslintConfig = {
     'react/no-this-in-sfc': [2],
     'react/no-unstable-nested-components': ['error', { allowAsProps: true }],
     'react/void-dom-elements-no-children': [2],
-    'react/jsx-equals-spacing': [2, 'never'],
-    'react/jsx-closing-tag-location': [2],
-    'react/jsx-closing-bracket-location': [2, 'tag-aligned'],
     'react/jsx-curly-brace-presence': [2, { props: 'never', children: 'never' }],
-    'react/jsx-curly-newline': [2, 'consistent'],
-    'react/jsx-curly-spacing': [2, { when: 'never', allowMultiline: false, children: true }],
     'react/boolean-prop-naming': [2, {
       validateNested: true,
       rule: '^(is|has|should|can|did|will)[A-Z]([A-Za-z0-9]?)+',
     }],
-    'react/jsx-first-prop-new-line': [2, 'multiline'],
-    'react/jsx-indent': [2, 2, { checkAttributes: true, indentLogicalExpressions: true }],
-    'react/jsx-indent-props': [2, 2],
     'react/jsx-no-constructed-context-values': [2],
     'react/jsx-no-duplicate-props': [2, { ignoreCase: true }],
     'react/jsx-pascal-case': [2],
@@ -172,21 +135,6 @@ const eslintConfig = {
       shorthandFirst: true,
       ignoreCase: true,
       reservedFirst: true,
-    }],
-    'react/jsx-tag-spacing': [2, {
-      closingSlash: 'never',
-      beforeSelfClosing: 'always',
-      afterOpening: 'never',
-      beforeClosing: 'never',
-    }],
-    'react/jsx-wrap-multilines': [2, {
-      declaration: 'parens-new-line',
-      return: 'parens-new-line',
-      condition: 'parens-new-line',
-      logical: 'parens-new-line',
-      prop: 'parens-new-line',
-      assignment: 'parens-new-line',
-      arrow: 'parens-new-line',
     }],
   },
 

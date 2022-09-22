@@ -12,6 +12,11 @@ Select one of the packages below to view their docs.
 
 - [ESLint](./packages/eslint)
 
+### Prettier config
+`npm install -D @elseu/sdu-react-scripts-prettier`
+
+- [Prettier](./packages/prettier)
+
 ### Rollup config
 `npm install -D @elseu/sdu-react-scripts-rollup`
 
@@ -20,3 +25,4 @@ Select one of the packages below to view their docs.
 `npm install -D @elseu/sdu-react-scripts-babel-plugins`
 
 - [Babel plugins](./packages/babel-plugins)
+
