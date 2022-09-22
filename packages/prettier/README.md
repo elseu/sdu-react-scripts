@@ -6,7 +6,7 @@ For formatting your code using the Prettier formatter. Using the Sdu Prettier co
 
 ```json
 {
-  "name": "my-cool-library",
+  "name": "@elseu/library-name",
   "version": "9000.0.1",
   "prettier": "@elseu/sdu-react-scripts-prettier"
 }

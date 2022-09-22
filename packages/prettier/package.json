@@ -54,7 +54,7 @@
         {
           "notifyOnSuccess": true,
           "notifyOnFail": true,
-          "packageName": "@elseu/sdu-react-scripts-eslint",
+          "packageName": "@elseu/sdu-react-scripts-prettier",
           "markdownReleaseNotes": true
         }
       ]
