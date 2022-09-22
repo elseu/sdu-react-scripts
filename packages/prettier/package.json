@@ -1,0 +1,72 @@
+{
+  "name": "@elseu/sdu-react-scripts-prettier",
+  "description": "A standard Prettier config to get started with",
+  "main": "index.js",
+  "version": "1.0.0",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elseu/sdu-react-scripts"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": {
+    "name": "Bart Waardenburg",
+    "email": "b.waardenburg@sdu.nl"
+  },
+  "scripts": {
+    "release": "semantic-release"
+  },
+  "release": {
+    "monorepo": {
+      "debug": true,
+      "analyzeCommits": {
+        "format": "angular"
+      },
+      "generateNotes": {
+        "preset": "angular"
+      }
+    },
+    "extends": "semantic-release-monorepo",
+    "branches": [
+      "main",
+      {
+        "name": "develop",
+        "prerelease": true
+      },
+      {
+        "name": "release",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "semantic-release-slack-bot",
+        {
+          "notifyOnSuccess": true,
+          "notifyOnFail": true,
+          "packageName": "@elseu/sdu-react-scripts-eslint",
+          "markdownReleaseNotes": true
+        }
+      ]
+    ]
+  },
+  "peerDependencies": {
+    "prettier": "^2.7.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "semantic-release": "^19.0.3",
+    "semantic-release-monorepo": "^7.0.5",
+    "semantic-release-slack-bot": "^3.5.3"
+  }
+}
