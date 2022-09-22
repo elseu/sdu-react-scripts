@@ -1,0 +1,80 @@
+{
+  "name": "@elseu/sdu-react-scripts-stylelint",
+  "description": "A standard Stylelint config to get started with",
+  "main": "index.js",
+  "version": "1.0.0",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elseu/sdu-react-scripts"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": {
+    "name": "Bart Waardenburg",
+    "email": "b.waardenburg@sdu.nl"
+  },
+  "scripts": {
+    "release": "semantic-release",
+    "stylelint-check": "stylelint-config-prettier-check"
+  },
+  "release": {
+    "monorepo": {
+      "debug": true,
+      "analyzeCommits": {
+        "format": "angular"
+      },
+      "generateNotes": {
+        "preset": "angular"
+      }
+    },
+    "extends": "semantic-release-monorepo",
+    "branches": [
+      "main",
+      {
+        "name": "develop",
+        "prerelease": true
+      },
+      {
+        "name": "release",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "semantic-release-slack-bot",
+        {
+          "notifyOnSuccess": true,
+          "notifyOnFail": true,
+          "packageName": "@elseu/sdu-react-scripts-eslint",
+          "markdownReleaseNotes": true
+        }
+      ]
+    ]
+  },
+  "peerDependencies": {
+    "stylelint": "^14.7.1",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0"
+  },
+  "devDependencies": {
+    "semantic-release": "^19.0.3",
+    "semantic-release-monorepo": "^7.0.5",
+    "semantic-release-slack-bot": "^3.5.3",
+    "stylelint": "^14.7.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0"
+  }
+}

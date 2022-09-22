@@ -12,6 +12,11 @@ Select one of the packages below to view their docs.
 
 - [ESLint](./packages/eslint)
 
+### Stylelint config
+`npm install -D @elseu/sdu-react-scripts-stylelint`
+
+- [Stylelint](./packages/stylelint)
+
 ### Rollup config
 `npm install -D @elseu/sdu-react-scripts-rollup`
 
