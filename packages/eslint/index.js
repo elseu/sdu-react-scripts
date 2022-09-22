@@ -10,7 +10,7 @@ const eslintConfig = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:jsx-a11y/recommended',
-    "prettier"
+    'prettier',
   ],
   plugins: ['simple-import-sort', 'testing-library'],
   env: {
@@ -36,7 +36,10 @@ const eslintConfig = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
-    '@typescript-eslint/consistent-type-exports': ['error', { fixMixedExportsWithInlineTypeSpecifier: true }],
+    '@typescript-eslint/consistent-type-exports': [
+      'error',
+      { fixMixedExportsWithInlineTypeSpecifier: true },
+    ],
     '@typescript-eslint/method-signature-style': ['error', 'property'],
     '@typescript-eslint/no-confusing-non-null-assertion': ['error'],
     '@typescript-eslint/no-dynamic-delete': ['error'],
@@ -46,7 +49,8 @@ const eslintConfig = {
     '@typescript-eslint/prefer-includes': ['error'],
     '@typescript-eslint/prefer-optional-chain': ['error'],
     '@typescript-eslint/prefer-string-starts-ends-with': ['error'],
-    '@typescript-eslint/naming-convention': ['error',
+    '@typescript-eslint/naming-convention': [
+      'error',
       {
         selector: 'variable',
         types: ['boolean'],
@@ -123,19 +127,25 @@ const eslintConfig = {
     'react/no-unstable-nested-components': ['error', { allowAsProps: true }],
     'react/void-dom-elements-no-children': [2],
     'react/jsx-curly-brace-presence': [2, { props: 'never', children: 'never' }],
-    'react/boolean-prop-naming': [2, {
-      validateNested: true,
-      rule: '^(is|has|should|can|did|will)[A-Z]([A-Za-z0-9]?)+',
-    }],
+    'react/boolean-prop-naming': [
+      2,
+      {
+        validateNested: true,
+        rule: '^(is|has|should|can|did|will)[A-Z]([A-Za-z0-9]?)+',
+      },
+    ],
     'react/jsx-no-constructed-context-values': [2],
     'react/jsx-no-duplicate-props': [2, { ignoreCase: true }],
     'react/jsx-pascal-case': [2],
-    'react/jsx-sort-props': [2, {
-      callbacksLast: true,
-      shorthandFirst: true,
-      ignoreCase: true,
-      reservedFirst: true,
-    }],
+    'react/jsx-sort-props': [
+      2,
+      {
+        callbacksLast: true,
+        shorthandFirst: true,
+        ignoreCase: true,
+        reservedFirst: true,
+      },
+    ],
   },
 
   overrides: [
