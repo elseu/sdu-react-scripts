@@ -20,8 +20,7 @@
     "email": "b.waardenburg@sdu.nl"
   },
   "scripts": {
-    "release": "semantic-release",
-    "stylelint-check": "stylelint-config-prettier-check"
+    "release": "semantic-release"
   },
   "release": {
     "monorepo": {
@@ -55,7 +54,7 @@
         {
           "notifyOnSuccess": true,
           "notifyOnFail": true,
-          "packageName": "@elseu/sdu-react-scripts-eslint",
+          "packageName": "@elseu/sdu-react-scripts-stylelint",
           "markdownReleaseNotes": true
         }
       ]
@@ -63,6 +62,7 @@
   },
   "peerDependencies": {
     "stylelint": "^14.7.1",
+    "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0"
