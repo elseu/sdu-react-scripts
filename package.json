@@ -28,7 +28,7 @@
     "lint-fix": "eslint --fix . --ext .ts,.tsx,.js,.jsx",
     "release": "yarn workspaces run release"
   },
-  "prettier": "@company/prettier-config",
+  "prettier": "./node_modules/@elseu/sdu-react-scripts-prettier",
   "lint-staged": {
     "**/*.(js|ts|tsx)": [
       "eslint --fix"
