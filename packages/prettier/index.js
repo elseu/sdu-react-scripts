@@ -1,7 +1,7 @@
 const prettierConfig = {
-  trailingComma: "all",
+  trailingComma: 'all',
   singleQuote: true,
-  printWidth: 100
+  printWidth: 100,
 };
 
 module.exports = prettierConfig;
