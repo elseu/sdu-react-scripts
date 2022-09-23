@@ -124,6 +124,7 @@ const eslintConfig = {
     'jsx-quotes': ['error', 'prefer-double'],
     'max-len': ['error', { code: 120 }],
     indent: 'off',
+    'no-nested-ternary': 'error',
     quotes: ['error', 'single'],
     'prefer-template': 'error',
     semi: ['error', 'always'],
@@ -178,7 +179,15 @@ const eslintConfig = {
       afterOpening: 'never',
       beforeClosing: 'never',
     }],
-    'react/jsx-wrap-multilines': [2, { declaration: 'parens-new-line' }],
+    'react/jsx-wrap-multilines': [2, {
+      declaration: 'parens-new-line',
+      return: 'parens-new-line',
+      condition: 'parens-new-line',
+      logical: 'parens-new-line',
+      prop: 'parens-new-line',
+      assignment: 'parens-new-line',
+      arrow: 'parens-new-line',
+    }],
   },
 
   overrides: [
