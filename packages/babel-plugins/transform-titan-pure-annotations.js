@@ -35,10 +35,7 @@ function isReactCall(path) {
 
   for (const [module, methods] of PURE_CALLS) {
     const object = path.get('callee.object');
-    if (
-      object.referencesImport(module, 'default') ||
-      object.referencesImport(module, '*')
-    ) {
+    if (object.referencesImport(module, 'default') || object.referencesImport(module, '*')) {
       for (const method of methods) {
         if (t.isIdentifier(path.node.callee.property, { name: method })) {
           return true;

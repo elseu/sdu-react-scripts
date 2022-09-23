@@ -6,16 +6,14 @@ const path = require('path');
 async function eslintEject() {
   const confirm = new Confirm({
     name: 'confirm',
-    message: 'Are you sure you want to eject? This can\'t be undone',
+    message: "Are you sure you want to eject? This can't be undone",
   });
 
   if (!(await confirm.run())) {
     return;
   }
 
-  const contents = fs.readFileSync(
-    path.join(__dirname, '../src/index.js'),
-  );
+  const contents = fs.readFileSync(path.join(__dirname, '../src/index.js'));
   const eslintPath = path.join(process.cwd(), '.eslintrc.js');
   fs.writeFileSync(eslintPath, contents);
 
