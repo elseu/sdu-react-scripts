@@ -1,5 +1,9 @@
 # Babel Plugins
 
+## install babel-plugins
+
+`npm install -D @elseu/sdu-react-scripts-babel-plugins`
+
 ## transform-titan-pure-annotations
 
 With this babel plugin you can transform @elseu/sdu-titan to make it export only pure functions.
