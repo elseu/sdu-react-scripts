@@ -3,7 +3,7 @@ const stylelintConfig = {
   extends: [
     'stylelint-config-standard-scss',
     'stylelint-config-styled-components',
-    'stylelint-config-prettier/recommended',
+    'stylelint-config-prettier',
   ],
   customSyntax: 'postcss-scss',
   rules: {
