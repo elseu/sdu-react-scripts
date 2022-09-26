@@ -10,6 +10,6 @@ For linting your CSS with the `stylelint` CSS linter. Using the Sdu Stylelint co
 
 > ```json
 > {
->  "extends": "@elseu/sdu-react-scripts-stylelint"
+>   "extends": "@elseu/sdu-react-scripts-stylelint"
 > }
 > ```
