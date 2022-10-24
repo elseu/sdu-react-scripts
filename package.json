@@ -24,14 +24,16 @@
   "scripts": {
     "postinstall": "preconstruct dev && manypkg check",
     "build": "preconstruct build",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
-    "lint-fix": "eslint --fix . --ext .ts,.tsx,.js,.jsx",
+    "lint": "eslint",
+    "lint:all": "npm run lint -- './packages/**/*.{j,t}s{,x}'",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:fix-all": "npm run lint:all -- --fix",
     "release": "yarn workspaces run release"
   },
   "prettier": "./node_modules/@elseu/sdu-react-scripts-prettier",
   "lint-staged": {
     "**/*.(js|ts|tsx)": [
-      "eslint --fix",
+      "npm run lint:fix",
       "prettier --write"
     ],
     "**/*.md": [
