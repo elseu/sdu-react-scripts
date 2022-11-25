@@ -20,13 +20,14 @@ You can use this babel plugin with rollup like this:
 ```
 
 ```js
-// rollup.config.js
+// rollup.config.mjs
 import createDefaultRollupConfig from '@elseu/sdu-react-scripts-rollup';
-import { getBabelOutputPlugin } from '@rollup/plugin-babel';
+import { babel } from '@rollup/plugin-babel';
+import { readFile } from 'fs/promises';
 
-import pkg from './package.json';
+const pkg = JSON.parse(await readFile(new URL('./package.json', import.meta.url)));
 
-const defaultRollupConfig = createDefaultRollupConfig(pkg);
+const defaultRollupConfig = createDefaultRollupConfig.default(pkg);
 
 export default {
   ...defaultRollupConfig,
@@ -35,8 +36,9 @@ export default {
     ...defaultRollupConfig.plugins,
 
     // Rollup babel plugin added below
-    getBabelOutputPlugin({
-      configFile: path.resolve(__dirname, '.babelrc'),
+    babel({
+      babelHelpers: 'bundled',
+      extensions: ['.ts', '.tsx'],
     }),
   ],
   // Your custom Rollup config here...
