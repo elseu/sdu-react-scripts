@@ -21,6 +21,7 @@ function createDefaultRollupConfig(pkg) {
         preserveModules: true,
         preserveModulesRoot: 'src',
         sourcemap: true,
+        interop: 'auto',
       },
       {
         dir: dirname(pkg.module),
@@ -28,6 +29,7 @@ function createDefaultRollupConfig(pkg) {
         preserveModules: true,
         preserveModulesRoot: 'src',
         sourcemap: true,
+        interop: 'auto',
       },
     ],
     plugins: [
