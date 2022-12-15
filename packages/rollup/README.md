@@ -11,16 +11,17 @@ Then install Rollup as a peer dependency. Just copy this line and paste in your 
 npm install --save-dev rollup
 ```
 
-Then create a file named rollup.config.js with following contents in the root folder of your project:
+Then create a file named rollup.config.mjs with following contents in the root folder of your project:
 
 ```javascript
 // rollup.config.js
 import createDefaultRollupConfig from '@elseu/sdu-react-scripts-rollup';
+import { readFile } from 'fs/promises';
 
-import pkg from './package.json';
+const pkg = JSON.parse(await readFile(new URL('./package.json', import.meta.url)));
 
 export default {
-  ...createDefaultRollupConfig(pkg),
+  ...createDefaultRollupConfig.default(pkg),
   // Your custom Rollup config here...
 };
 ```

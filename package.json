@@ -23,46 +23,47 @@
   },
   "scripts": {
     "postinstall": "preconstruct dev && manypkg check",
-    "build": "preconstruct build && yarn workspace @elseu/sdu-react-scripts-update-deps build",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
-    "lint-fix": "eslint --fix . --ext .ts,.tsx,.js,.jsx",
+    "build": "preconstruct build",
+    "lint": "eslint",
+    "lint:all": "npm run lint -- './packages/**/*.{j,t}s{,x}'",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:fix-all": "npm run lint:all -- --fix",
     "release": "yarn workspaces run release"
   },
   "prettier": "./node_modules/@elseu/sdu-react-scripts-prettier",
   "lint-staged": {
     "**/*.(js|ts|tsx)": [
-      "eslint --fix",
-      "prettier --write ."
+      "npm run lint:fix",
+      "prettier --write"
     ],
     "**/*.md": [
-      "prettier --write ."
+      "prettier --write"
     ]
   },
   "dependencies": {
-    "@babel/core": "^7.18.6",
-    "@babel/preset-env": "^7.18.6",
-    "@babel/preset-typescript": "^7.18.6",
-    "@manypkg/cli": "^0.19.1",
-    "@preconstruct/cli": "^2.1.7",
-    "@typescript-eslint/eslint-plugin": "^5.30.4",
-    "@typescript-eslint/parser": "^5.30.4",
-    "eslint": "^8.19.0",
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "@manypkg/cli": "^0.19.2",
+    "@preconstruct/cli": "^2.2.2",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-import-resolver-typescript": "^3.2.1",
+    "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.0",
-    "eslint-plugin-n": "^15.2.4",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-n": "^15.5.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-standard": "^4.1.0",
-    "eslint-plugin-testing-library": "^5.5.1",
-    "husky": "^8.0.1",
+    "eslint-plugin-testing-library": "^5.9.1",
+    "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.0",
     "react": "^18.2.0",
-    "tslib": "^2.4.0",
-    "typescript": "^4.7.4"
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.3"
   }
 }

@@ -61,11 +61,11 @@
     ]
   },
   "peerDependencies": {
-    "prettier": "^2.7.1"
+    "prettier": "^2.8.0"
   },
   "devDependencies": {
-    "prettier": "^2.7.1",
-    "semantic-release": "^19.0.3",
+    "prettier": "^2.8.0",
+    "semantic-release": "^19.0.5",
     "semantic-release-monorepo": "^7.0.5",
     "semantic-release-slack-bot": "^3.5.3"
   }
