@@ -9,7 +9,7 @@
     "dist"
   ],
   "bin": {
-    "sdu-react-scripts-update-deps": "./dist/index.js"
+    "sdu-react-scripts-update-deps": "./bin/sdu-update-deps.js"
   },
   "repository": {
     "type": "git",
