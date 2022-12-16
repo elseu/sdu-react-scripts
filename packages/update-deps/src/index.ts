@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import jsonfile from 'jsonfile';
 
 import { getPackageVersions } from './latestVersion/latestVersion';

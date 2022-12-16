@@ -1,7 +1,8 @@
 {
   "name": "@elseu/sdu-react-scripts-update-deps",
   "description": "Helper package to download all @elseu/sdu-titan package information and update it in the package.json",
-  "main": "dist/index.js",
+  "main": "dist/elseu-sdu-react-scripts-update-deps.cjs.js",
+  "module": "dist/elseu-sdu-react-scripts-update-deps.esm.js",
   "version": "1.0.0",
   "license": "MIT",
   "files": [
@@ -19,7 +20,6 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
-    "build": "tsc --outDir dist",
     "release": "semantic-release"
   },
   "browserslist": {

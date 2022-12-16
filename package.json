@@ -18,6 +18,7 @@
   ],
   "preconstruct": {
     "packages": [
+      "packages/update-deps",
       "packages/rollup"
     ]
   },
