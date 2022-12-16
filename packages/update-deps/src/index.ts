@@ -1,3 +1,9 @@
+/**
+ *
+ * Helper script to download all @elseu/sdu-titan package information and update it in the package.json
+ *
+ */
+import chalk from 'chalk';
 import jsonfile from 'jsonfile';
 
 import { getPackageVersions } from './latestVersion/latestVersion';
@@ -13,7 +19,7 @@ const main = async () => {
 
   const { output: versions } = await getPackageVersions(allElseuPackages);
 
-  let hasChanges = false;
+  const changedPackages: string[] = [];
 
   if (!versions) {
     throw new Error('No version information to be parsed');
@@ -23,18 +29,30 @@ const main = async () => {
   console.log('');
 
   versions.forEach((version, packageName) => {
+    const currentVersionInPackageJson = packageJson.dependencies[packageName];
+
     // check if the version is different
-    if (!packageJson.dependencies[packageName].endsWith(version)) {
-      console.log(`Set ${packageName} to ${version} in package.json`);
+    if (!currentVersionInPackageJson.endsWith(version)) {
+      console.log(`Package           : ${chalk.magentaBright(packageName)}`);
+      console.log(`Installed version : ${chalk.yellowBright(currentVersionInPackageJson)}`);
+      console.log(`Updated to version: ${chalk.redBright(version)}`);
 
       packageJson.dependencies[packageName] = version;
 
-      hasChanges = true;
+      changedPackages.push(packageName);
+    } else {
+      console.log(`Package           : ${chalk.cyan(packageName)}`);
+      console.log(`Installed version : ${chalk.greenBright(currentVersionInPackageJson)}`);
     }
+
+    console.log('');
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  if (!hasChanges) {
+  if (changedPackages.length > 0) {
+    console.log(
+      `Changes were made in the package.json for: \n${chalk.magenta(changedPackages.join('\n'))}`,
+    );
+  } else {
     console.log('No changes made to the package.json, all versions are up-to-date');
   }
 

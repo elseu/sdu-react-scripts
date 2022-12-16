@@ -1,27 +1,34 @@
 // forked from https://github.com/patelvimal/latest-package-version
 
+import chalk from 'chalk';
+
 import { executeCommand } from './shellCommand';
 
-export function getPackageVersions(names: string[]): Promise<IPkgVersionResponse> {
+export async function getPackageVersions(names: string[]): Promise<IPkgVersionResponse> {
   const versionInfo: Map<string, string> = new Map();
 
-  // prevent 'Possible EventEmitter memory leak detected' notice
-  process.setMaxListeners(names.length);
-
   const promises = names.map(async (pkg) => {
-    let latestVersion = await executeCommand(`npm view ${pkg} version`);
+    console.log(`Fetching version package information (${chalk.magentaBright(pkg)})`);
 
-    console.log('pkg : ', pkg);
+    const versions = await executeCommand(`npm view ${pkg} versions`);
 
-    if (latestVersion) {
-      latestVersion = latestVersion.replace('\n', '');
+    if (versions) {
+      const latestVersion = versions
+        .replace('\n', '')
+        // find the last tag, which is at the end of the versions string
+        .match(/'(\d*\.\d*\.\d*(?:-\w*\.\d*)*)'\n*\s*]\n*\.*/);
 
-      console.log(`Latest version: ${latestVersion}`);
-      versionInfo.set(pkg, latestVersion);
+      if (latestVersion) {
+        const packageVersion = latestVersion[1];
+        versionInfo.set(pkg, packageVersion);
+      } else {
+        console.error(`NO VERSION FOUND FOR: ${pkg}`);
+      }
     } else {
-      console.error(`NO VERSION FOUND FOR: ${pkg}`);
-    }
+        console.error(`NO VERSION FOUND FOR: ${pkg}`);
+      }
   });
+
   return Promise.all(promises).then(
     () => {
       return {

@@ -2,7 +2,7 @@
   "name": "@elseu/sdu-react-scripts-update-deps",
   "description": "Helper package to download all @elseu/sdu-titan package information and update it in the package.json",
   "main": "dist/elseu-sdu-react-scripts-update-deps.cjs.js",
-  "module": "dist/elseu-sdu-react-scripts-update-deps.esm.js",
+  "author": "Oskar van Velden",
   "version": "1.0.0",
   "license": "MIT",
   "files": [
@@ -74,6 +74,7 @@
   },
   "dependencies": {
     "@types/jsonfile": "^6.1.0",
+    "chalk": "^4.1.2",
     "jsonfile": "^6.1.0"
   },
   "devDependencies": {
