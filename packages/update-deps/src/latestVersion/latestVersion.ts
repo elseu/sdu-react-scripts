@@ -10,6 +10,9 @@ export async function getPackageVersions(
 ): Promise<IPkgVersionResponse> {
   const versionInfo: Map<string, string> = new Map();
 
+  // prevent error about exit-listeners
+  process.setMaxListeners(50);
+
   const promises = names.map(async (pkg) => {
     log(`Fetching version package information (${chalk.magentaBright(pkg)})`);
 
