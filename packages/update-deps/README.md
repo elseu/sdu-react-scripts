@@ -26,10 +26,14 @@ For example:
 
 `npm run dev:deps -- -p@babel` or `npm run dev:deps -- --prefix=@babel` - this would update all the packages starting with `@babel`
 
+### Stable only
+`-s` or `--stable-only`
+If the packages should only be updated to the latest stable versions, so will skip version with a postfix
+
 ### Dryrun
 `-d` or `--dryrun`  
 This will prevent the `package.json` be updated and only output the versions that **would be** changed.
 
 ### Silent
-`-s` or `--silent`  
+`--silent`  
 Don't output any logging information

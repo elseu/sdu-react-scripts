@@ -7,6 +7,7 @@ import { executeCommand } from './shellCommand';
 export async function getPackageVersions(
   names: string[],
   log: (message: string, error?: boolean) => void,
+  stableOnly: boolean,
 ): Promise<IPkgVersionResponse> {
   const versionInfo: Map<string, string> = new Map();
 
@@ -16,19 +17,23 @@ export async function getPackageVersions(
   const promises = names.map(async (pkg) => {
     log(`Fetching version package information (${chalk.magentaBright(pkg)})`);
 
-    const versions = await executeCommand(`npm view ${pkg} versions`);
+    const versions = (
+      await executeCommand(`npm view ${pkg} version${stableOnly ? '' : 's'}`)
+    ).replace('\n', '');
 
     if (versions) {
-      const latestVersion = versions
-        .replace('\n', '')
-        // find the last tag, which is at the end of the versions string
-        .match(/'(\d*\.\d*\.\d*(?:-\w*\.\d*)*)'\n*\s*]\n*\.*/);
-
-      if (latestVersion) {
-        const packageVersion = latestVersion[1];
-        versionInfo.set(pkg, packageVersion);
+      if (stableOnly) {
+        versionInfo.set(pkg, versions);
       } else {
-        log(`Error: no version found for: ${pkg}`, true);
+        const latestVersion = versions
+          // find the last tag, which is at the end of the versions string
+          .match(/'(\d*\.\d*\.\d*(?:-\w*\.\d*)*)'\n*\s*]\n*\.*/);
+
+        if (latestVersion) {
+          versionInfo.set(pkg, latestVersion[1]);
+        } else {
+          log(`Error: no version found for: ${pkg}`, true);
+        }
       }
     } else {
       log(`Error: no version found for: ${pkg}`, true);

@@ -10,7 +10,7 @@ import jsonfile from 'jsonfile';
 import { getPackageVersions } from './latestVersion/latestVersion';
 
 const main = async (options: any) => {
-  const { dryrun, prefix, silent } = options;
+  const { dryrun, prefix, silent, stableOnly } = options;
 
   const log = (message: string, error?: boolean) => (!silent || error) && console.log(message);
 
@@ -41,7 +41,7 @@ const main = async (options: any) => {
       continue;
     }
 
-    const { output: versions } = await getPackageVersions(allPackages, log);
+    const { output: versions } = await getPackageVersions(allPackages, log, !!stableOnly);
 
     if (!versions) {
       throw new Error('No version information to be parsed');
@@ -91,9 +91,10 @@ program
   .description(
     "Tool to update the 'package.json' with the latest versions of the @elseu-packages in this package.json",
   )
-  .option('-s, --silent', 'Skip all the output, except errors.')
+  .option('--silent', 'Skip all the output, except errors.')
   .option('-d, --dryrun', "Don't update the package.json, just output.")
   .option('-p, --prefix <prefix>', 'What packages to update', '@elseu')
+  .option('-s, --stable-only', "Don't use development-versions, only latest stable")
   .action(main);
 
 program.parse(process.argv);
