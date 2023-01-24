@@ -75,8 +75,8 @@
   "dependencies": {
     "@types/jsonfile": "^6.1.0",
     "chalk": "^4.1.2",
-    "jsonfile": "^6.1.0",
-    "commander": "^9.4.1"
+    "commander": "^9.4.1",
+    "jsonfile": "^6.1.0"
   },
   "devDependencies": {
     "semantic-release": "^19.0.5",
