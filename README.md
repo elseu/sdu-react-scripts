@@ -37,3 +37,9 @@ Select one of the packages below to view their docs.
 `npm install -D @elseu/sdu-react-scripts-babel-plugins`
 
 - [Babel plugins](./packages/babel-plugins)
+
+### Update Deps
+
+`npm install -D @elseu/sdu-react-scripts-update-deps`
+
+- [Update deps](./packages/update-deps)

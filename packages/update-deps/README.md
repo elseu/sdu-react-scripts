@@ -7,7 +7,7 @@ For update your dependencies add `@elseu/sdu-react-scripts-update-deps` in your 
 ```json
 {
   "scripts": {
-    "update-deps": "sdu-react-scripts-update-deps"
+    "dev:deps": "sdu-react-scripts-update-deps"
   }
 }
 ```
@@ -16,7 +16,7 @@ For update your dependencies add `@elseu/sdu-react-scripts-update-deps` in your 
 The tool makes use of the [Commander](https://www.npmjs.com/package/commander) package. To view the available options, run:
 
 ```bash
-$ npm run update-deps -- --help
+$ npm run dev:deps -- --help
 ```
 
 ### Prefix
@@ -24,7 +24,7 @@ $ npm run update-deps -- --help
 What prefix the packages should have, by default it's set to `@elseu` - but could also be something different.  
 For example:
 
-`npm run update-deps -- -p@babel` or `npm run update-deps -- --prefix=@babel` - this would update all the packages starting with `@babel`
+`npm run dev:deps -- -p@babel` or `npm run dev:deps -- --prefix=@babel` - this would update all the packages starting with `@babel`
 
 ### Dryrun
 `-d` or `--dryrun`  
