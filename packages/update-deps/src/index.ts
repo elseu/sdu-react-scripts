@@ -4,20 +4,33 @@
  *
  */
 import chalk from 'chalk';
+import { Command } from 'commander';
 import jsonfile from 'jsonfile';
 
 import { getPackageVersions } from './latestVersion/latestVersion';
 
-const main = async () => {
+const main = async (options: any) => {
+  const { dryrun, prefix, silent } = options;
+
+  const log = (message: string, error?: boolean) => (!silent || error) && console.log(message);
+
+  // add a new line for readability ^^
+  log('');
+
   // load package.json
   const packageJson = jsonfile.readFileSync('package.json');
 
-  // get all @elseu-packages
-  const allElseuPackages = Object.keys(packageJson.dependencies).filter((name) =>
-    name.startsWith('@elseu'),
+  // get all packages that start with the given prefix
+  const allPackages = Object.keys(packageJson.dependencies).filter((name) =>
+    name.startsWith(prefix),
   );
 
-  const { output: versions } = await getPackageVersions(allElseuPackages);
+  if (allPackages.length === 0) {
+    log(`No packages found that start with: ${chalk.magenta(prefix)}`);
+    process.exit();
+  }
+
+  const { output: versions } = await getPackageVersions(allPackages, log);
 
   const changedPackages: string[] = [];
 
@@ -25,38 +38,52 @@ const main = async () => {
     throw new Error('No version information to be parsed');
   }
 
-  // add a new line for readability ^^
-  console.log('');
-
   versions.forEach((version, packageName) => {
     const currentVersionInPackageJson = packageJson.dependencies[packageName];
 
     // check if the version is different
     if (!currentVersionInPackageJson.endsWith(version)) {
-      console.log(`Package           : ${chalk.magentaBright(packageName)}`);
-      console.log(`Installed version : ${chalk.yellowBright(currentVersionInPackageJson)}`);
-      console.log(`Updated to version: ${chalk.redBright(version)}`);
+      log(`Package           : ${chalk.magentaBright(packageName)}`);
+      log(`Installed version : ${chalk.yellowBright(currentVersionInPackageJson)}`);
+      log(`Updated to version: ${chalk.redBright(version)}`);
 
       packageJson.dependencies[packageName] = version;
 
       changedPackages.push(packageName);
     } else {
-      console.log(`Package           : ${chalk.cyan(packageName)}`);
-      console.log(`Installed version : ${chalk.greenBright(currentVersionInPackageJson)}`);
+      log(`Package           : ${chalk.cyan(packageName)}`);
+      log(`Installed version : ${chalk.greenBright(currentVersionInPackageJson)}`);
     }
 
-    console.log('');
+    log('');
   });
 
   if (changedPackages.length > 0) {
-    console.log(
-      `Changes were made in the package.json for: \n${chalk.magenta(changedPackages.join('\n'))}`,
-    );
+    if (!dryrun) {
+      log(
+        `Changes were made in the package.json for: \n${chalk.magenta(changedPackages.join('\n'))}`,
+      );
+    }
   } else {
-    console.log('No changes made to the package.json, all versions are up-to-date');
+    log('No changes made to the package.json, all versions are up-to-date');
   }
 
-  jsonfile.writeFileSync('package.json', packageJson, { spaces: 2 });
+  if (!dryrun) {
+    jsonfile.writeFileSync('package.json', packageJson, { spaces: 2 });
+  } else {
+    log(`No updates written to 'package.json' due to the ${chalk.cyan('--dryrun')} flag`);
+  }
 };
 
-main();
+const program = new Command();
+
+program
+  .description(
+    "Tool to update the 'package.json' with the latest versions of the @elseu-packages in this package.json",
+  )
+  .option('-s, --silent', 'Skip all the output, except errors.')
+  .option('-d, --dryrun', "Don't update the package.json, just output.")
+  .option('-p, --prefix <prefix>', 'What packages to update', '@elseu')
+  .action(main);
+
+program.parse(process.argv);
