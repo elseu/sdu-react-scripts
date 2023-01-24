@@ -19,50 +19,60 @@ const main = async (options: any) => {
 
   // load package.json
   const packageJson = jsonfile.readFileSync('package.json');
-
-  // get all packages that start with the given prefix
-  const allPackages = Object.keys(packageJson.dependencies).filter((name) =>
-    name.startsWith(prefix),
-  );
-
-  if (allPackages.length === 0) {
-    log(`No packages found that start with: ${chalk.magenta(prefix)}`);
-    process.exit();
-  }
-
-  const { output: versions } = await getPackageVersions(allPackages, log);
-
   const changedPackages: string[] = [];
 
-  if (!versions) {
-    throw new Error('No version information to be parsed');
-  }
+  for (const depName of ['dependencies', 'devDependencies', 'peerDependencies']) {
+    log(`Processing ${chalk.greenBright(depName)} from package.json`);
 
-  versions.forEach((version, packageName) => {
-    const currentVersionInPackageJson = packageJson.dependencies[packageName];
+    if (!packageJson[depName]) {
+      log(`No package found in ${depName}\n`);
+      continue;
+    }
 
-    // check if the version is different
-    if (!currentVersionInPackageJson.endsWith(version)) {
-      log(`Package           : ${chalk.magentaBright(packageName)}`);
-      log(`Installed version : ${chalk.yellowBright(currentVersionInPackageJson)}`);
-      log(`Updated to version: ${chalk.redBright(version)}`);
+    // get all packages that start with the given prefix
+    const allPackages = Object.keys(packageJson[depName]).filter((name) => name.startsWith(prefix));
 
-      packageJson.dependencies[packageName] = version;
+    if (allPackages.length === 0) {
+      log(
+        `No packages found that start with "${chalk.magenta(prefix)}" in ${chalk.greenBright(
+          depName,
+        )}\n`,
+      );
+      continue;
+    }
 
-      changedPackages.push(packageName);
-    } else {
-      log(`Package           : ${chalk.cyan(packageName)}`);
-      log(`Installed version : ${chalk.greenBright(currentVersionInPackageJson)}`);
+    const { output: versions } = await getPackageVersions(allPackages, log);
+
+    if (!versions) {
+      throw new Error('No version information to be parsed');
     }
 
     log('');
-  });
+
+    versions.forEach((version, packageName) => {
+      const currentVersionInPackageJson = packageJson[depName][packageName];
+
+      // check if the version is different
+      if (!currentVersionInPackageJson.endsWith(version)) {
+        log(`Package           : ${chalk.magentaBright(packageName)}`);
+        log(`Installed version : ${chalk.yellowBright(currentVersionInPackageJson)}`);
+        log(`Updated to version: ${chalk.redBright(version)}`);
+
+        packageJson[depName][packageName] = version;
+
+        changedPackages.push(`${chalk.greenBright(depName)}: ${chalk.magentaBright(packageName)}`);
+      } else {
+        log(`Package           : ${chalk.cyan(packageName)}`);
+        log(`Installed version : ${chalk.greenBright(currentVersionInPackageJson)}`);
+      }
+
+      log('');
+    });
+  }
 
   if (changedPackages.length > 0) {
     if (!dryrun) {
-      log(
-        `Changes were made in the package.json for: \n${chalk.magenta(changedPackages.join('\n'))}`,
-      );
+      log(`Changes were made in the package.json for: \n${changedPackages.join('\n')}`);
     }
   } else {
     log('No changes made to the package.json, all versions are up-to-date');
