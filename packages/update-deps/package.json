@@ -9,7 +9,7 @@
     "dist"
   ],
   "bin": {
-    "sdu:dev:deps": "./bin/sdu-update-deps.js"
+    "sdu-deps": "./bin/sdu-update-deps.js"
   },
   "repository": {
     "type": "git",

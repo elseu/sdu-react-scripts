@@ -16,7 +16,7 @@ Or add it to your project `package.json`:
 ```json
 {
   "scripts": {
-    "dev:deps": "sdu:dev:deps"
+    "dev:deps": "sdu-deps"
   }
 }
 ```
@@ -25,7 +25,7 @@ Or add it to your project `package.json`:
 The tool makes use of the [Commander](https://www.npmjs.com/package/commander) package. To view the available options, run:
 
 ```bash
-$ sdu:dev:deps --help
+$ sdu-deps --help
 ```
 
 ### Prefix
@@ -33,7 +33,7 @@ $ sdu:dev:deps --help
 What prefix the packages should have, by default it's set to `@elseu` - but could also be something different.  
 For example:
 
-`sdu:dev:deps -- -p@babel` or `sdu:dev:deps -- --prefix=@babel` - this would update all the packages starting with `@babel`
+`sdu-deps -p@babel` or `sdu-deps --prefix=@babel` - this would update all the packages starting with `@babel`
 
 ### Stable only
 `-s` or `--stable-only`
