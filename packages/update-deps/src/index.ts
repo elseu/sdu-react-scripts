@@ -10,7 +10,7 @@ import jsonfile from 'jsonfile';
 import { getPackageVersions } from './latestVersion/latestVersion';
 
 const main = async (options: any) => {
-  const { dryrun, prefix, silent, stableOnly } = options;
+  const { all, dryrun, prefix, silent, stableOnly } = options;
 
   const log = (message: string, error?: boolean) => (!silent || error) && console.log(message);
 
@@ -21,7 +21,13 @@ const main = async (options: any) => {
   const packageJson = jsonfile.readFileSync('package.json');
   const changedPackages: string[] = [];
 
-  for (const depName of ['dependencies', 'devDependencies', 'peerDependencies']) {
+  let depsToUpdate = ['dependencies', 'devDependencies'];
+
+  if (all) {
+    depsToUpdate = [...depsToUpdate, 'peerDependencies'];
+  }
+
+  for (const depName of depsToUpdate) {
     log(`Processing ${chalk.greenBright(depName)} from package.json`);
 
     if (!packageJson[depName]) {
@@ -80,6 +86,15 @@ const main = async (options: any) => {
 
   if (!dryrun) {
     jsonfile.writeFileSync('package.json', packageJson, { spaces: 2 });
+
+    log('');
+    log(
+      chalk.blueBright(
+        `Don't forget to run ${chalk.redBright(
+          "'npm install'",
+        )} to update the package-lock.json before committing`,
+      ),
+    );
   } else {
     log(`No updates written to 'package.json' due to the ${chalk.cyan('--dryrun')} flag`);
   }
@@ -92,6 +107,7 @@ program
     "Tool to update the 'package.json' with the latest versions of the @elseu-packages in this package.json",
   )
   .option('--silent', 'Skip all the output, except errors.')
+  .option('-a, --all', 'Also include peerDependencies')
   .option('-d, --dryrun', "Don't update the package.json, just output.")
   .option('-p, --prefix <prefix>', 'What packages to update', '@elseu')
   .option('-s, --stable-only', "Don't use development-versions, only latest stable")
