@@ -66,7 +66,8 @@
   "devDependencies": {
     "semantic-release": "^19.0.5",
     "semantic-release-monorepo": "^7.0.5",
-    "semantic-release-slack-bot": "^3.5.3"
+    "semantic-release-slack-bot": "^3.5.3",
+    "stylelint": "^14.16.1"
   },
   "dependencies": {
     "stylelint-config-prettier": "^9.0.4",
