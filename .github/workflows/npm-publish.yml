@@ -15,27 +15,26 @@ jobs:
     name: Lint, Build & Release
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@master
+      - name: Checkout repository
+        uses: actions/checkout@master
 
-    - name: Set up Node.js
-      uses: actions/setup-node@master
-      with:
-        node-version: 14
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 18
 
-    - name: Yarn install
-      run: yarn install --frozen-lockfile
+      - name: Yarn install
+        run: yarn install --frozen-lockfile
 
-    - name: Yarn lint
-      run: yarn lint
-      
-    - name: Yarn build
-      run: yarn build
+      - name: Yarn lint
+        run: yarn lint
 
-    - name: Semantic Release
-      run: yarn release
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Yarn build
+        run: yarn build
 
+      - name: Semantic Release
+        run: yarn release
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
