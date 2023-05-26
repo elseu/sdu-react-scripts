@@ -17,11 +17,15 @@ export async function getPackageVersions(
   const promises = names.map(async (pkg) => {
     log(`Fetching version package information (${chalk.magentaBright(pkg)})`);
 
-    const versions = (
-      await executeCommand(`npm view ${pkg} version${stableOnly ? '' : 's'}`)
-    ).replace('\n', '');
+    let versions = await executeCommand(`npm view ${pkg} version${stableOnly ? '' : 's'}`);
 
     if (versions) {
+      versions = versions.replace('\n', '');
+
+      if (versions === '') {
+        return;
+      }
+
       if (stableOnly) {
         versionInfo.set(pkg, versions);
       } else {
@@ -48,6 +52,8 @@ export async function getPackageVersions(
       };
     },
     (error) => {
+      console.error('Something went wrong while fetching the version information');
+
       return {
         output: null,
         error,
