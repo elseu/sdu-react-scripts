@@ -41,6 +41,9 @@
       "prettier --write"
     ]
   },
+  "resolutions": {
+    "eslint-plugin-n": "^16.0.0"
+  },
   "dependencies": {
     "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
