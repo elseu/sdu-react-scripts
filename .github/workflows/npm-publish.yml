@@ -4,6 +4,7 @@
 name: Publish to NPM
 
 on:
+  pull_request:
   push:
     branches:
       - main
@@ -11,8 +12,8 @@ on:
       - release
 
 jobs:
-  build:
-    name: Lint, Build & Release
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -28,6 +29,22 @@ jobs:
 
       - name: Yarn lint
         run: yarn lint
+
+  release:
+    if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/develop'
+    name: Build & Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 18
+
+      - name: Yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Yarn build
         run: yarn build
