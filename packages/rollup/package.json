@@ -80,7 +80,7 @@
     "@rollup/plugin-typescript": "^11.1.1",
     "@rollup/plugin-url": "^8.0.1",
     "rollup": "^3.23.0",
-    "rollup-plugin-node-externals": "^6.0.1"
+    "rollup-plugin-node-externals": "^5.0.2"
   },
   "devDependencies": {
     "semantic-release": "^19.x",
