@@ -2,8 +2,7 @@ const stylelintConfig = {
   processors: ['stylelint-processor-styled-components'],
   extends: [
     'stylelint-config-standard-scss',
-    'stylelint-config-styled-components',
-    'stylelint-config-prettier',
+    'stylelint-config-styled-components'
   ],
   customSyntax: 'postcss-scss',
   rules: {
