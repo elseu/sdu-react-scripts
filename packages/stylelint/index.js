@@ -13,6 +13,7 @@ const stylelintConfig = {
     'declaration-empty-line-before': null,
     'keyframes-name-pattern': null,
     'no-descending-specificity': null,
+    'selector-anb-no-unmatchable': null,
     'no-eol-whitespace': null,
     'selector-class-pattern': null,
     'string-quotes': null,
