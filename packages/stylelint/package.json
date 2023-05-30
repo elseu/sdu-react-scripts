@@ -60,14 +60,17 @@
       ]
     ]
   },
+  "peerDependencies": {
+    "stylelint": ">=15"
+  },
   "devDependencies": {
     "semantic-release": "^19.x",
     "semantic-release-monorepo": "^7.0.5",
-    "semantic-release-slack-bot": "^4.0.2"
+    "semantic-release-slack-bot": "^4.0.2",
+    "stylelint": "^15.6.2"
   },
   "dependencies": {
-    "stylelint": "^15.5.0",
-    "stylelint-config-prettier": "^9.0.5",
+    "postcss": "^8.4.19",
     "stylelint-config-standard-scss": "^9.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0"
