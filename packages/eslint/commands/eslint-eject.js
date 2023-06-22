@@ -26,7 +26,7 @@ async function eslintEject() {
     'eslint-import-resolver-typescript',
     'eslint-plugin-import',
     'eslint-plugin-jsx-a11y',
-    'eslint-plugin-node',
+    'eslint-plugin-n',
     'eslint-plugin-promise',
     'eslint-plugin-react',
     'eslint-plugin-react-hooks',

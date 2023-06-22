@@ -49,6 +49,7 @@ const eslintConfig = {
     '@typescript-eslint/prefer-includes': ['error'],
     '@typescript-eslint/prefer-optional-chain': ['error'],
     '@typescript-eslint/prefer-string-starts-ends-with': ['error'],
+    '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/naming-convention': [
       'error',
       {
