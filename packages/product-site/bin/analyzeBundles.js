@@ -1,12 +1,13 @@
 #!/usr/bin/env node
+const cwd = process.cwd()
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
 
-const bundle = require('../../.next/build-manifest.json');
+const bundle = require(`${cwd}/.next/build-manifest.json`);
 
 const prefix = '.next';
-const outdir = path.join(process.cwd(), prefix, 'analyze');
+const outdir = path.join(cwd, prefix, 'analyze');
 const outfileTxt = path.join(outdir, 'bundle-sizes.txt');
 const outfileJson = path.join(outdir, 'bundle.json');
 
