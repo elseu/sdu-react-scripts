@@ -5,7 +5,16 @@ This package contains utility scripts for `sdu-titan-product-site`.
 
 `npm install -D @elseu/sdu-react-scripts-product-site`
 
-## Bundle size utils
+## Setup linked packages
+Symlink a package from another directory for easier local development.
+
+### Usage
+```bash
+npx npx sdu-react-scripts-product-site-setup-linked-packages
+```
+This will bring up a prompt, just enter the package you want to symlink and it will handle the necessary steps for you.
+
+## Bundle size utils: analyze bundles & compare bundle sizes
 Node scripts to calculate and compare Next.js bundles by size. Intended to be used in CI, but can also be used locally. They are written with Sdu Titan Product Site in mind, but could in theory be made more generic to fit other Next.js projects.
 
 ### Usage

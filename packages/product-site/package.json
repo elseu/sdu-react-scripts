@@ -24,7 +24,8 @@
   },
   "bin": {
     "sdu-react-scripts-product-site-analyze-bundle-size": "./bin/analyzeBundles.js",
-    "sdu-react-scripts-product-site-compare-bundle-size": "./bin/compareBundleSizes.js"
+    "sdu-react-scripts-product-site-compare-bundle-size": "./bin/compareBundleSizes.js",
+    "sdu-react-scripts-product-site-setup-linked-packages": "./bin/setupLinkedPackages.js"
   },
   "release": {
     "monorepo": {
@@ -67,6 +68,7 @@
   "devDependencies": {
     "semantic-release": "^19.x",
     "semantic-release-monorepo": "^7.0.5",
-    "semantic-release-slack-bot": "^4.0.2"
+    "semantic-release-slack-bot": "^4.0.2",
+    "prompt": "^1.3.0"
   }
 }
