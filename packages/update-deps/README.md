@@ -33,7 +33,9 @@ $ sdu-deps --help
 The package that only needs to be updated, others will be ignored  
 For example:
 
-`sdu-deps -osdu-titan` or `sdu-deps --only=@babel` - this would update `@elseu/sdu-titan` or `@elseu/sdu-titan-content-rendering`
+`sdu-deps -osdu-titan` or `sdu-deps --only=@babel` - this would update `@elseu/sdu-titan` or `@babel`
+
+💡you can "forget" adding the prefix `@elseu`, this will automagically be added if no package can be found with the provided name. So `--only=@elseu/sdu-titan` is the same as `--only=sdu-titan` 🤷‍♀️ 
 
 ### Prefix
 `-p` or `--prefix`  
