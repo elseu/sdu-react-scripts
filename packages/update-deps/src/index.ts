@@ -10,7 +10,7 @@ import jsonfile from 'jsonfile';
 import { getPackageVersions } from './latestVersion/latestVersion';
 
 const main = async (options: any) => {
-  const { all, dryrun, prefix, silent, stableOnly } = options;
+  const { all, dryrun, only, prefix, silent, stableOnly } = options;
 
   const log = (message: string, error?: boolean) => (!silent || error) && console.log(message);
 
@@ -36,14 +36,34 @@ const main = async (options: any) => {
     }
 
     // get all packages that start with the given prefix
-    const allPackages = Object.keys(packageJson[depName]).filter((name) => name.startsWith(prefix));
+    let allPackages;
+
+    if (only) {
+      let tempOnly = only;
+
+      if (!tempOnly.startsWith('@elseu')) {
+        tempOnly = `@elseu/${tempOnly}`;
+      }
+
+      allPackages = Object.keys(packageJson[depName]).filter((name) => name === tempOnly);
+    } else {
+      allPackages = Object.keys(packageJson[depName]).filter((name) => name.startsWith(prefix));
+    }
 
     if (allPackages.length === 0) {
-      log(
-        `No packages found that start with "${chalk.magenta(prefix)}" in ${chalk.greenBright(
-          depName,
-        )}\n`,
-      );
+      if (only) {
+        log(
+          `No packages found that with the name "${chalk.magenta(only)}" in ${chalk.greenBright(
+            depName,
+          )}\n`,
+        );
+      } else {
+        log(
+          `No packages found that start with "${chalk.magenta(prefix)}" in ${chalk.greenBright(
+            depName,
+          )}\n`,
+        );
+      }
       continue;
     }
 
@@ -109,7 +129,8 @@ program
   .option('--silent', 'Skip all the output, except errors.')
   .option('-a, --all', 'Also include peerDependencies')
   .option('-d, --dryrun', "Don't update the package.json, just output.")
-  .option('-p, --prefix <prefix>', 'What packages to update', '@elseu')
+  .option('-o, --only <package>', 'One specific package to update (@elseu-prefix can be skipped)')
+  .option('-p, --prefix <prefix>', 'Prefix for packages to update', '@elseu')
   .option('-s, --stable-only', "Don't use development-versions, only latest stable")
   .action(main);
 
