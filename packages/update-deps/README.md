@@ -28,6 +28,13 @@ The tool makes use of the [Commander](https://www.npmjs.com/package/commander) p
 $ sdu-deps --help
 ```
 
+### Only
+`-o` or `--only`  
+The package that only needs to be updated, others will be ignored  
+For example:
+
+`sdu-deps -osdu-titan` or `sdu-deps --only=@babel` - this would update `@elseu/sdu-titan` or `@elseu/sdu-titan-content-rendering`
+
 ### Prefix
 `-p` or `--prefix`  
 What prefix the packages should have, by default it's set to `@elseu` - but could also be something different.  
