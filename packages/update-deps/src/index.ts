@@ -39,13 +39,12 @@ const main = async (options: any) => {
     let allPackages;
 
     if (only) {
-      let tempOnly = only;
+      allPackages = Object.keys(packageJson[depName]).filter((name) => name === only);
 
-      if (!tempOnly.startsWith('@elseu')) {
-        tempOnly = `@elseu/${tempOnly}`;
+      // support searching the package without the @elseu-prefix
+      if (allPackages.length === 0) {
+        allPackages = Object.keys(packageJson[depName]).filter((name) => name === `@elseu/${only}`);
       }
-
-      allPackages = Object.keys(packageJson[depName]).filter((name) => name === tempOnly);
     } else {
       allPackages = Object.keys(packageJson[depName]).filter((name) => name.startsWith(prefix));
     }
