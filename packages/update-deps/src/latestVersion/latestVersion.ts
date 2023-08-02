@@ -29,12 +29,26 @@ export async function getPackageVersions(
       if (stableOnly) {
         versionInfo.set(pkg, versions);
       } else {
-        const latestVersion = versions
-          // find the last tag, which is at the end of the versions string
-          .match(/'(\d*\.\d*\.\d*(?:-\w*\.\d*)*)'\n*\s*]\n*\.*/);
+        const allRegexpMatches = [
+          ...versions
+            // find the tags
+            .matchAll(/'(\d*\.\d*\.\d*(?:-\w*\.\d*)*)'/g),
+        ];
 
-        if (latestVersion) {
-          versionInfo.set(pkg, latestVersion[1]);
+        const allVersions: string[] = [];
+
+        allRegexpMatches.forEach((match) => {
+          allVersions.push(match[1]);
+        });
+
+        if (allVersions.length === 0) {
+          log(`Error: no version found for: ${pkg}`, true);
+        }
+
+        const latestVersion = allVersions.filter((v) => !v.includes('next') && !v.includes('test'));
+
+        if (latestVersion.length) {
+          versionInfo.set(pkg, latestVersion.pop()!);
         } else {
           log(`Error: no version found for: ${pkg}`, true);
         }
