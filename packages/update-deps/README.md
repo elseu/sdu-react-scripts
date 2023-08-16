@@ -28,6 +28,26 @@ The tool makes use of the [Commander](https://www.npmjs.com/package/commander) p
 $ sdu-deps --help
 ```
 
+- [only](#only) : `-o`  
+    useful to _only_ update one specific package  
+  
+- [prefix](#prefix) : `-p`  
+    useful to update all packages starting with the same string
+
+- [stable only](#stable-only) : `-s`  
+    useful when releasing, when we only want to have stable versions 
+  
+- [dryrun](#dryrun) : `-d`  
+    useful if you just want to check out what _would_ be updated 
+  
+- [silent](#silent) : `--silent`  
+    useful for when you don't want to make any noise
+
+- [with peerDependencies](#with-peerdependencies) : `-a`  
+    by default the peerDependencies won't be updated, this will enforce to have them included
+  
+---
+
 ### Only
 `-o` or `--only`  
 The package that only needs to be updated, others will be ignored  
