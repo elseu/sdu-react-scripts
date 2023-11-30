@@ -16,6 +16,12 @@ import { config } from '@elseu/sdu-react-scripts-i18n';
 /** @type {import('@lingui/conf').LinguiConfig} */
 module.exports = {
   ...config,
+  locales: config.locales.filter(locale => {
+    // filter out dev on production, optionally other locales can be discarded as well
+    if (process.env.ENVIRONMENT === 'production' && locale === 'dev') return false;
+
+    return true;
+  });
 };
 ```
 
