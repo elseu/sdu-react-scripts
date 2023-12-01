@@ -1,12 +1,13 @@
 {
-  "name": "@elseu/sdu-react-scripts-stylelint",
-  "description": "A standard Stylelint config to get started with",
+  "name": "@elseu/sdu-react-scripts-i18n",
+  "description": "Config for Lingui within Sdu products",
   "main": "index.js",
   "version": "1.0.0",
   "license": "MIT",
   "files": [
     "index.js"
   ],
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/elseu/sdu-react-scripts"
@@ -16,8 +17,8 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "author": {
-    "name": "Bart Waardenburg",
-    "email": "b.waardenburg@sdu.nl"
+    "name": "Tim de Wolf",
+    "email": "t.d.wolf@sdu.nl"
   },
   "scripts": {
     "release": "semantic-release"
@@ -54,25 +55,22 @@
         {
           "notifyOnSuccess": true,
           "notifyOnFail": true,
-          "packageName": "@elseu/sdu-react-scripts-stylelint",
+          "packageName": "@elseu/sdu-react-scripts-i18n",
           "markdownReleaseNotes": true
         }
       ]
     ]
   },
   "peerDependencies": {
-    "stylelint": "^15.5.0"
+    "@lingui/core": "^4",
+    "@lingui/react": "^4"
   },
   "devDependencies": {
+    "@lingui/conf": "^4.5.0",
+    "@lingui/core": "^4.5.0",
+    "@lingui/react": "^4.5.0",
     "semantic-release": "^19.x",
     "semantic-release-monorepo": "^7.0.5",
-    "semantic-release-slack-bot": "^4.0.2",
-    "stylelint": "^15.11.0"
-  },
-  "dependencies": {
-    "stylelint-config-prettier": "^9.0.5",
-    "stylelint-config-standard-scss": "^6.1.0",
-    "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-processor-styled-components": "^1.10.0"
+    "semantic-release-slack-bot": "^4.0.2"
   }
 }

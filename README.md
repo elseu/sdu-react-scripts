@@ -43,3 +43,9 @@ Select one of the packages below to view their docs.
 `npm install -D @elseu/sdu-react-scripts-update-deps`
 
 - [Update deps](./packages/update-deps)
+
+### i18n config
+
+`npm install -D @elseu/sdu-react-scripts-i18n`
+
+- [i18n](./packages/i18n)
