@@ -81,6 +81,7 @@ const eslintConfig = {
         typedefs: false,
       },
     ],
+    'no-console': [1, { allow: ['warn', 'error']}],
     'no-unused-expressions': 'off',
     '@typescript-eslint/no-unused-expressions': [
       'error',
