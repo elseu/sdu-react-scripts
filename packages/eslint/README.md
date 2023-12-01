@@ -18,3 +18,7 @@ module.exports = {
   extends: ['@elseu/sdu-react-scripts-eslint'],
 };
 ```
+
+## ESLint with VSCode
+
+To use ESLint with VSCode you should install the [ESLint VSCode plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
