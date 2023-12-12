@@ -1,11 +1,6 @@
 const stylelintConfig = {
-  processors: ['stylelint-processor-styled-components'],
-  extends: [
-    'stylelint-config-standard-scss',
-    'stylelint-config-styled-components',
-    'stylelint-config-prettier',
-  ],
-  customSyntax: 'postcss-scss',
+  extends: ['stylelint-config-standard-scss'],
+  customSyntax: 'postcss-styled-syntax',
   rules: {
     'alpha-value-notation': 'number',
     'color-function-notation': 'legacy',
