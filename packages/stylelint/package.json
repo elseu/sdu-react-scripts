@@ -67,7 +67,7 @@
     "semantic-release": "^19.x",
     "semantic-release-monorepo": "^7.0.5",
     "semantic-release-slack-bot": "^4.0.2",
-    "stylelint": "^15.11.0"
+    "stylelint": "^16.0.2"
   },
   "dependencies": {
     "postcss-styled-syntax": "^0.5.0",
