@@ -154,6 +154,12 @@ const eslintConfig = {
       },
     },
     {
+      files: ['*.stories.@(tsx|jsx)'],
+      rules: {
+        'no-console': 'off',
+      },
+    },
+    {
       // 3) Now we enable eslint-plugin-testing-library rules or preset only for matching files!
       files: ['**/?(*.)+(spec|test).[jt]s?(x)'],
       extends: ['plugin:testing-library/react'],
