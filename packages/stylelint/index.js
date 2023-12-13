@@ -1,11 +1,6 @@
 const stylelintConfig = {
-  processors: ['stylelint-processor-styled-components'],
-  extends: [
-    'stylelint-config-standard-scss',
-    'stylelint-config-styled-components',
-    'stylelint-config-prettier',
-  ],
-  customSyntax: 'postcss-scss',
+  extends: ['stylelint-config-standard'],
+  customSyntax: 'postcss-styled-syntax',
   rules: {
     'alpha-value-notation': 'number',
     'color-function-notation': 'legacy',
@@ -13,6 +8,7 @@ const stylelintConfig = {
     'declaration-empty-line-before': null,
     'keyframes-name-pattern': null,
     'no-descending-specificity': null,
+    'no-empty-source': null,
     'no-eol-whitespace': null,
     'selector-class-pattern': null,
     'string-quotes': null,
