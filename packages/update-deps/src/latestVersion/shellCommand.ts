@@ -1,4 +1,6 @@
-import { exec, ExecOptions } from 'child_process';
+/* eslint-disable no-console */
+import type { ExecOptions } from 'child_process';
+import { exec } from 'child_process';
 
 export async function executeCommand(command: string, options: ExecOptions = {}): Promise<string> {
   const childProcess: any = exec(command, options);

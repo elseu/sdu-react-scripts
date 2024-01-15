@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const cwd = process.cwd()
+const cwd = process.cwd();
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
