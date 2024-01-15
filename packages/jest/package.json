@@ -1,0 +1,68 @@
+{
+  "name": "@elseu/sdu-react-scripts-jest",
+  "version": "1.0.0",
+  "description": "Shared SduOne jest configuration\"",
+  "main": "index.js",
+  "repository": "https://github.com/elseu/sdu-react-scripts",
+  "author": {
+    "name": "Carlo Bernardini",
+    "email": "c.bernardini@sdu.nl"
+  },
+  "files": [
+    "index.js"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "release": "semantic-release"
+  },
+  "release": {
+    "monorepo": {
+      "debug": true,
+      "analyzeCommits": {
+        "format": "angular"
+      },
+      "generateNotes": {
+        "preset": "angular"
+      }
+    },
+    "extends": "semantic-release-monorepo",
+    "branches": [
+      "main",
+      {
+        "name": "develop",
+        "prerelease": true
+      },
+      {
+        "name": "release",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "semantic-release-slack-bot",
+        {
+          "notifyOnSuccess": true,
+          "notifyOnFail": true,
+          "packageName": "@elseu/sdu-react-scripts-jest",
+          "markdownReleaseNotes": true
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.5.0",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0"
+  }
+}
