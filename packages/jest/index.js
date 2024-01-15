@@ -29,7 +29,7 @@ module.exports = {
   coveragePathIgnorePatterns: [
     '.*.stories.tsx',
     '.*/stories/.*',
-    '.*d.ts',
+    '.*.d.ts',
     '.*.test.tsx',
     '.*/tests/.*',
   ],
