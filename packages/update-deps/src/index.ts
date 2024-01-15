@@ -3,6 +3,7 @@
  * Helper script to download all @elseu/sdu-titan package information and update it in the package.json
  *
  */
+/* eslint-disable no-console */
 import chalk from 'chalk';
 import { Command } from 'commander';
 import jsonfile from 'jsonfile';

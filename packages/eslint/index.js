@@ -81,7 +81,7 @@ const eslintConfig = {
         typedefs: false,
       },
     ],
-    'no-console': [1, { allow: ['warn', 'error']}],
+    'no-console': [1, { allow: ['warn', 'error'] }],
     'no-unused-expressions': 'off',
     '@typescript-eslint/no-unused-expressions': [
       'error',
@@ -128,10 +128,13 @@ const eslintConfig = {
         rule: '^(is|has|should|can|did|will)[A-Z]([A-Za-z0-9]?)+',
       },
     ],
-    'react/self-closing-comp': ['error', {
-      'component': true,
-      'html': true
-    }],
+    'react/self-closing-comp': [
+      'error',
+      {
+        component: true,
+        html: true,
+      },
+    ],
     'react/jsx-no-constructed-context-values': [2],
     'react/jsx-no-duplicate-props': [2, { ignoreCase: true }],
     'react/jsx-pascal-case': [2],

@@ -28,7 +28,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Yarn lint
-        run: yarn lint
+        run: yarn lint-all
 
   release:
     if: github.ref != 'refs/heads/main' || github.ref != 'refs/heads/develop'

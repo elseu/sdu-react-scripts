@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const { Confirm } = require('enquirer');
 const fs = require('fs');
 const execa = require('execa');

@@ -1,5 +1,5 @@
 // index.d.ts
-import { LinguiConfig } from '@lingui/conf';
+import type { LinguiConfig } from '@lingui/conf';
 
 // Define the structure of a locale item
 export interface LocaleItem {
