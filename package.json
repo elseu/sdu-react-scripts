@@ -23,7 +23,7 @@
     ]
   },
   "scripts": {
-    "postinstall": "preconstruct dev && manypkg check",
+    "postinstall": "preconstruct dev && manypkg check && husky install",
     "build": "preconstruct build",
     "lint": "eslint",
     "lint:fix": "npm run lint -- --fix",
