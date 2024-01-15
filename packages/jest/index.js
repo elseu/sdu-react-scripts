@@ -26,7 +26,13 @@ module.exports = {
   coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: [],
+  coveragePathIgnorePatterns: [
+    '.*.stories.tsx',
+    '.*/stories/.*',
+    '.*d.ts',
+    '.*.test.tsx',
+    '.*/tests/.*',
+  ],
 
   // Indicates which provider should be used to instrument code for coverage
   /** v8 is faster, but currently bugged: https://github.com/istanbuljs/v8-to-istanbul/issues/198 */
