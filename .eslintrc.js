@@ -1,5 +1,6 @@
 module.exports = {
   extends: ['./node_modules/@elseu/sdu-react-scripts-eslint'],
+  plugins: ['prettier'],
   ignorePatterns: ['.eslintrc.js', 'babel.config.js'],
   overrides: [
     {
@@ -9,4 +10,7 @@ module.exports = {
       },
     },
   ],
+  rules: {
+    'prettier/prettier': ['error'],
+  }
 };

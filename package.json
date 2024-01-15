@@ -26,16 +26,15 @@
     "postinstall": "preconstruct dev && manypkg check",
     "build": "preconstruct build",
     "lint": "eslint",
-    "lint:all": "npm run lint -- './packages/**/*.{j,t}s{,x}'",
     "lint:fix": "npm run lint -- --fix",
-    "lint:fix-all": "npm run lint:all -- --fix",
+    "lint-all": "npm run lint -- './packages/**/*.{j,t}s{,x}'",
+    "lint-all:fix": "npm run lint-all -- --fix",
     "release": "yarn workspaces run release"
   },
   "prettier": "./node_modules/@elseu/sdu-react-scripts-prettier",
   "lint-staged": {
     "**/*.(js|ts|tsx)": [
-      "npm run lint:fix",
-      "prettier --write"
+      "npm run lint-all:fix"
     ],
     "**/*.md": [
       "prettier --write"
@@ -55,6 +54,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-n": "^15.5.1",
+    "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
@@ -63,7 +63,7 @@
     "eslint-plugin-testing-library": "^5.11.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
-    "prettier": "^2.8.8",
+    "prettier": "^3.2.2",
     "react": "^18.2.0",
     "stylelint": "^15.11.0",
     "tslib": "^2.5.2",
