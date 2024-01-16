@@ -34,15 +34,7 @@
     },
     "extends": "semantic-release-monorepo",
     "branches": [
-      "main",
-      {
-        "name": "develop",
-        "prerelease": true
-      },
-      {
-        "name": "release",
-        "prerelease": true
-      }
+      "main"
     ],
     "plugins": [
       "@semantic-release/npm",
