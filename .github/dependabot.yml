@@ -1,0 +1,16 @@
+version: 2
+registries:
+  elseu-npm:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: ${{secrets.SDU_READ_PACKAGES_GH_PAT}}
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    registries:
+      - elseu-npm
+    schedule:
+      interval: 'weekly'
+    # We only want security updates, no version updates
+    # https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#overriding-the-default-behavior-with-a-configuration-file
+    open-pull-requests-limit: 0
