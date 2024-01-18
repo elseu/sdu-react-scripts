@@ -26,15 +26,15 @@
     "postinstall": "preconstruct dev && manypkg check && husky install",
     "build": "preconstruct build",
     "lint": "eslint",
-    "lint:fix": "npm run lint -- --fix",
-    "lint-all": "npm run lint -- './packages/**/*.{j,t}s{,x}'",
-    "lint-all:fix": "npm run lint-all -- --fix",
+    "lint:fix": "yarn lint --fix",
+    "lint-all": "yarn lint './packages/**/*.{j,t}s{,x}'",
+    "lint-all:fix": "npm run lint-all --fix",
     "release": "yarn workspaces run release"
   },
   "prettier": "./node_modules/@elseu/sdu-react-scripts-prettier",
   "lint-staged": {
     "**/*.(js|ts|tsx)": [
-      "npm run lint-all:fix"
+      "yarn lint-all:fix"
     ],
     "**/*.md": [
       "prettier --write"
