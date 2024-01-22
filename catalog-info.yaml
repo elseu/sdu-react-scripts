@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1beta1
+kind: Component
+metadata:
+  name: sdu-react-scripts
+  description: ""
+  annotations:
+    github.com/project-slug: elseu/sdu-react-scripts
+    backstage.io/source-location: url:https://github.com/elseu/sdu-react-scripts/
+  tags:
+    - javascript
+spec:
+  type: unspecified
+  owner: team-content-view
+  lifecycle: unspecified
