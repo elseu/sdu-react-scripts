@@ -164,7 +164,7 @@ const eslintConfig = {
     },
     {
       // 3) Now we enable eslint-plugin-testing-library rules or preset only for matching files!
-      files: ['**/?(*.)+(spec|test).[jt]s?(x)'],
+      files: ['**/?(*.)+(spec|test).[jt]s?(x)', '!**/playwright/**', '!**/cypress/**'],
       extends: ['plugin:testing-library/react'],
       rules: {
         'testing-library/await-async-query': 'error',
