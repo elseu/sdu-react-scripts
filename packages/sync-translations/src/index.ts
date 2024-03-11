@@ -1,9 +1,12 @@
+/* eslint-disable no-console */
+
+import { Command } from '@commander-js/extra-typings';
 import fs from 'fs';
 import path from 'path';
 import PO from 'pofile';
 import request from 'request';
-import { Command } from '@commander-js/extra-typings';
-import { POEditorLanguagesResult, POEditorResponse } from './types';
+
+import type { POEditorLanguagesResult, POEditorResponse } from './types';
 
 const program = new Command()
   .description(
@@ -88,6 +91,7 @@ const addTranslations = async () => {
       }));
 
     if (!translations.length) {
+      // eslint-disable-next-line no-console
       console.log('No new translations found. Skipping...');
       return;
     }
