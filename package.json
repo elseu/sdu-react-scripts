@@ -19,7 +19,8 @@
   "preconstruct": {
     "packages": [
       "packages/update-deps",
-      "packages/rollup"
+      "packages/rollup",
+      "packages/sync-translations"
     ]
   },
   "scripts": {
