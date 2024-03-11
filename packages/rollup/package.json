@@ -75,7 +75,7 @@
     "rollup-plugin-node-externals": "^5.0.2"
   },
   "devDependencies": {
-    "semantic-release": "^19.x",
+    "semantic-release": "^22.x",
     "semantic-release-monorepo": "^7.0.5",
     "semantic-release-slack-bot": "^4.0.2"
   }
