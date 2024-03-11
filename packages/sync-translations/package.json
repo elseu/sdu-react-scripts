@@ -73,7 +73,7 @@
   "devDependencies": {
     "@types/request": "^2.48.12",
     "semantic-release": "^22.x",
-    "semantic-release-monorepo": "^7.0.5",
+    "semantic-release-monorepo": "^8.x",
     "semantic-release-slack-bot": "^4.0.2"
   }
 }
