@@ -1,25 +1,34 @@
-/**
- *
- * Helper script to download all @elseu/sdu-titan package information and update it in the package.json
- *
- */
-import { Command } from 'commander';
 import fs from 'fs';
-import fetch from 'node-fetch';
 import path from 'path';
 import PO from 'pofile';
 import request from 'request';
+import { Command } from '@commander-js/extra-typings';
+import { POEditorLanguagesResult, POEditorResponse } from './types';
 
-import type { POEditorLanguagesResult, POEditorResponse, POFile } from './types';
+const program = new Command()
+  .description(
+    "Tool to update the 'package.json' with the latest versions of the @elseu-packages in this package.json",
+  )
+  .requiredOption('--po-project-id <poid>', 'POEditor Project Id')
+  .requiredOption('--po-api-token <api-token>', 'POEditor API Token')
+  .option('--locales <locales>', 'Comma separated string with locales', 'nl-NL,en-GB')
+  .option('--default-locale <locale>', 'Locale to be used as the default source locale', 'nl-NL')
+  .option(
+    '-s, --skip-new',
+    "If you don't want to upload new terms to POEditor; Only download latest PO files from POEditor",
+    false,
+  )
+  .parse(process.argv);
 
 const constants = {
-  POEDITOR_PROJECT_ID: '', //TODO this has to come from ENV-file or something
-  POEDITOR_API_TOKEN: '', //TODO this has to come from ENV-file or something
-  LOCALES: 'nl-NL,en-GB,fr-FR,nl-BE',
-  DEFAULT_LOCALE: 'nl-NL',
+  POEDITOR_PROJECT_ID: program.opts().poProjectId,
+  POEDITOR_API_TOKEN: program.opts().poApiToken,
+  LOCALES: program.opts().locales,
+  DEFAULT_LOCALE: program.opts().defaultLocale,
+  SKIP_NEW: program.opts().skipNew,
 };
 
-const LOCALES: string[] = (constants.LOCALES || constants.DEFAULT_LOCALE).split(',');
+const LOCALES = constants.LOCALES ? constants.LOCALES.split(',') : [constants.DEFAULT_LOCALE];
 const BASE_URL = 'https://api.poeditor.com/v2';
 
 function resolveFile(file: string) {
@@ -27,9 +36,9 @@ function resolveFile(file: string) {
   return path.join(basePath, file);
 }
 
-function readPO(file: string): Promise<POFile | null> {
+function readPO(file: string): Promise<PO | null> {
   return new Promise((resolve) => {
-    PO.load(file, (_err: any, po: any) => {
+    PO.load(file, (_err, po) => {
       resolve(po);
     });
   });
@@ -38,9 +47,7 @@ function readPO(file: string): Promise<POFile | null> {
 /** POEditor requires locales like nl-NL and it-IT to be nl and it, and nl-BE and en-GB to remain the same */
 function getLocaleString(locale: string) {
   const [language, country] = locale.split('-');
-  const localeString =
-    language.toLowerCase() === country.toLocaleLowerCase() ? language.toLowerCase() : locale;
-  return localeString;
+  return language.toLowerCase() === country.toLocaleLowerCase() ? language.toLowerCase() : locale;
 }
 
 const getLanguages = async () => {
@@ -279,9 +286,7 @@ const autoTranslate = async () => {
   console.info('Automatic translations done', data.result);
 };
 
-const sync = async (options: any) => {
-  const { skipnew } = options;
-
+const sync = async () => {
   // add a new line for readability ^^
   console.log('');
 
@@ -296,7 +301,7 @@ const sync = async (options: any) => {
       throw new Error('Environment variable DEFAULT_LOCALE missing');
     }
 
-    if (!skipnew) {
+    if (!constants.SKIP_NEW) {
       /** Add all new languages to POEditor */
       await addLanguages();
 
@@ -320,14 +325,4 @@ const sync = async (options: any) => {
   }
 };
 
-const program = new Command();
-
-program
-  .description('Helper package to sync translations of all locales with POEditor')
-  .option(
-    '-s, --skipnew',
-    "If you don't want to upload new terms to POEditor; Only download latest PO files from POEditor",
-  )
-  .action(sync);
-
-program.parse(process.argv);
+(async () => await sync())();

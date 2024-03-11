@@ -1,17 +1,3 @@
-interface POFileItem {
-  obsolete: boolean;
-  msgid: string;
-  msgstr: string[];
-  msgctxt: string;
-  msgid_plural: string | null;
-  references: string[];
-  comments: string[];
-}
-
-export interface POFile {
-  items: POFileItem[];
-}
-
 export type POEditorResponse = {
   response: {
     status: string;
