@@ -9,9 +9,7 @@ import request from 'request';
 import type { POEditorLanguagesResult, POEditorResponse } from './types';
 
 const program = new Command()
-  .description(
-    "Tool to update the 'package.json' with the latest versions of the @elseu-packages in this package.json",
-  )
+  .description('Tool to sync translations of all locales with POEditor')
   .requiredOption('--po-project-id <poid>', 'POEditor Project Id')
   .requiredOption('--po-api-token <api-token>', 'POEditor API Token')
   .option('--locales <locales>', 'Comma separated string with locales', 'nl-NL,en-GB')
