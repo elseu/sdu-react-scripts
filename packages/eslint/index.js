@@ -12,7 +12,7 @@ const eslintConfig = {
     'plugin:jsx-a11y/recommended',
     'prettier',
   ],
-  plugins: ['simple-import-sort', 'testing-library'],
+  plugins: ['simple-import-sort'],
   env: {
     node: true,
     es6: true,
@@ -164,7 +164,8 @@ const eslintConfig = {
     },
     {
       // 3) Now we enable eslint-plugin-testing-library rules or preset only for matching files!
-      files: ['**/?(*.)+(spec|test).[jt]s?(x)', '!**/playwright/**', '!**/cypress/**'],
+      files: ['**/?(*.)+(spec|test).[jt]s?(x)'],
+      excludedFiles: ['**/playwright/**', '**/cypress/**'],
       extends: ['plugin:testing-library/react'],
       rules: {
         'testing-library/await-async-query': 'error',
