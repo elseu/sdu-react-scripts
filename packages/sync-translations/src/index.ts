@@ -12,6 +12,11 @@ const program = new Command()
   .description('Tool to sync translations of all locales with POEditor')
   .requiredOption('--po-project-id <poid>', 'POEditor Project Id')
   .requiredOption('--po-api-token <api-token>', 'POEditor API Token')
+  .option(
+    '--po-files-path <po-files-path>',
+    'Local path where the po-files are located',
+    'src/locales',
+  )
   .option('--locales <locales>', 'Comma separated string with locales', 'nl-NL,en-GB')
   .option('--default-locale <locale>', 'Locale to be used as the default source locale', 'nl-NL')
   .option(
@@ -21,13 +26,22 @@ const program = new Command()
   )
   .parse(process.argv);
 
+// get rid of any slashes at the start and/or end
+const splitPath = program.opts().poFilesPath.split('/').filter(Boolean);
+
 const constants = {
   POEDITOR_PROJECT_ID: program.opts().poProjectId,
   POEDITOR_API_TOKEN: program.opts().poApiToken,
   LOCALES: program.opts().locales,
+  PO_FILES_PATH: path.join(...splitPath),
   DEFAULT_LOCALE: program.opts().defaultLocale,
   SKIP_NEW: program.opts().skipNew,
 };
+
+// bail if the provided path doesn't exist
+if (!(path.resolve(constants.PO_FILES_PATH) && fs.existsSync(constants.PO_FILES_PATH))) {
+  throw new Error(`PO file path does not exist: "${constants.PO_FILES_PATH}"`);
+}
 
 const LOCALES = constants.LOCALES ? constants.LOCALES.split(',') : [constants.DEFAULT_LOCALE];
 const BASE_URL = 'https://api.poeditor.com/v2';
@@ -65,7 +79,7 @@ const getLanguages = async () => {
 };
 
 const addTranslations = async () => {
-  const file = resolveFile(`./src/translations/locales/${constants.DEFAULT_LOCALE}/messages.po`);
+  const file = resolveFile(`${constants.PO_FILES_PATH}/${constants.DEFAULT_LOCALE}/messages.po`);
 
   try {
     if (!file) {
@@ -126,7 +140,7 @@ const addTranslations = async () => {
 };
 
 const addTerms = async () => {
-  const file = resolveFile(`./src/translations/locales/${constants.DEFAULT_LOCALE}/messages.po`);
+  const file = resolveFile(`${constants.PO_FILES_PATH}/${constants.DEFAULT_LOCALE}/messages.po`);
 
   try {
     if (!file) {
@@ -177,7 +191,7 @@ const addTerms = async () => {
 
 const syncTerms = async () => {
   for (const locale of LOCALES) {
-    const filePath = resolveFile(`./src/translations/locales/${locale}/messages.po`);
+    const filePath = resolveFile(`${constants.PO_FILES_PATH}/${locale}/messages.po`);
     const localeString = getLocaleString(locale);
 
     try {
