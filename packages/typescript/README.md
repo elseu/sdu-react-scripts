@@ -6,12 +6,12 @@ This package provides a shared [TSConfig Base](https://www.typescriptlang.org/do
 
 If you want to have your project extend from this base, you can install it with the following steps.
 
-First, install this package by running `npm i -D @elseu/sdu-react-scripts-tsconfig` .
+First, install this package by running `npm i -D @elseu/sdu-react-scripts-typescript` .
 Then, create a `tsconfig.json` in your own project that extends this base configuration while defining project specific options on top of it:
 
 ```json
 {
-  "extends": "@elseu/sdu-react-scripts-tsconfig/tsconfig.json",
+  "extends": "@elseu/sdu-react-scripts-typescript/tsconfig.json",
   ... // Project-specific configuration goes here
 }
 ```
