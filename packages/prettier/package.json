@@ -56,7 +56,7 @@
     "prettier": ">=2"
   },
   "devDependencies": {
-    "prettier": "^3.2.2",
+    "prettier": "^3.2.5",
     "semantic-release": "^22.x",
     "semantic-release-monorepo": "^8.x",
     "semantic-release-slack-bot": "^4.0.2"
